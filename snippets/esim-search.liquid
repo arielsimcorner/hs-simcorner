@@ -1,0 +1,78 @@
+<!-- Custom Search Form -->
+<form action="/search" method="get" class="custom-search-form">
+    <input type="search" name="q" placeholder="Search for eSIM Products" class="custom-search-input" value="{{ search_term | escape }}">
+</form>
+
+<!-- Include jQuery library (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the custom JavaScript code -->
+<script>
+$(function() {
+    // Current Ajax request.
+    var currentCustomAjaxRequest = null;
+    var customSearchForms = $('form.custom-search-form').css('position', 'relative').each(function() {
+        // Grabbing text input.
+        var input = $(this).find('input[name="q"]');
+        var offSet = input.position().top + input.innerHeight();
+        $('<ul class="custom-search-results"></ul>').css({ 'position': 'absolute' }).appendTo($(this)).hide();
+
+        // Listening to keyup and change on the text field within these search forms.
+        input.attr('autocomplete', 'off').bind('keyup change', function() {
+            var term = "[eSIM] " + $(this).val() + '*';
+            var form = $(this).closest('form');
+            var searchURL = '/search?type=product&q=' + term;
+            var resultsList = form.find('.custom-search-results');
+
+            if (term.length > 1 && term != $(this).attr('data-old-term')) {
+                resultsList.empty();
+                $(this).attr('data-old-term', term);
+
+                if (currentCustomAjaxRequest != null) currentCustomAjaxRequest.abort();
+                currentCustomAjaxRequest = $.getJSON(searchURL + '&view=json', function(data) {
+                    if (data.results_count === 0) {
+                        resultsList.html('<p>No results found.</p>');
+                        resultsList.fadeIn(200);
+                        return;
+                    }
+
+                    resultsList.empty(); // Clear existing results before adding new ones
+
+                    $.each(data.results, function(index, item) {
+                        // Filter results by title containing [eSIM]
+                        if (item.title.includes('[eSIM]')) {
+                            var link = $('<a></a>').attr('href', item.url);
+                            link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
+                            if (typeof item.price !== 'undefined') {
+                                link.append('<div class="search_dtl"><span class="title">' + item.title + '</span><span class="price">AUD ' + item.price + '</span><div class="reviews search_review"><div class="yotpo bottomLine" data-product-id="' + item.id + '"></div></div></div>');
+                            } else {
+                                link.append('<div class="search_dtl"><span class="title">' + item.title + '</span><div class="reviews search_review"><div class="yotpo bottomLine" data-product-id="' + item.id + '"></div></div></div>');
+                            }
+                            link.wrap('<li class="custom-result-item"></li>');
+                            resultsList.append(link.parent());
+                        }
+                    });
+
+
+                    resultsList.fadeIn(200);
+                    var api = new Yotpo.API(yotpo);
+                    api.refreshWidgets();
+                });
+            }
+        });
+    });
+
+    // Close the search results when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.custom-search-form').length) {
+            $('.custom-search-results').fadeOut(200);
+        }
+    });
+});
+</script>
+
+<style>
+    ul.search-results {
+        display: none!important;
+    }
+</style>

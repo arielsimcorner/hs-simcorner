@@ -1,0 +1,527 @@
+<!-- /templates/collection.liquid -->
+
+{%- if section.settings.show_collection_image and collection.image -%}
+  <div class="collection-hero" style="display:none;">
+    <noscript>
+      <div class="collection-hero__image-no-js" style="background-image:url({{ collection.image | img_url: '2048x2048' }});"></div>
+    </noscript>
+    {%- assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    {%- comment -%}
+      If the collection.image height is < 70% of its width on mobile or < 45% on desktop,
+      we crop the container to make sure it's the same height as the image.
+    {%- endcomment -%}
+    {%- assign height_width_ratio = 100 | divided_by: collection.image.aspect_ratio | floor -%}
+    {%- if height_width_ratio < 70 -%}
+      <style>
+        {%- if height_width_ratio < 45 -%}
+          .collection-hero__image-wrapper::after {
+            padding-bottom: {{ height_width_ratio }}%;
+          }
+        {%- else -%}
+          @media screen and (max-width: 768px) {
+            .collection-hero__image-wrapper::after {
+              padding-bottom: {{ height_width_ratio }}%;
+            }
+          }
+        {%- endif -%}
+      </style>
+    {%- endif -%}
+    <div class="collection-hero__image-wrapper">
+      <img class="collection-hero__image lazyload"
+        src="{{ collection.image | img_url: '300x' }}"
+        data-src="{{ img_url }}"
+        data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+        data-aspectratio="{{ collection.image.aspect_ratio }}"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt="{{ collection.image.alt | escape }}">
+    </div>
+  </div>
+{%- endif -%}
+
+<div class="continent_outer_main" id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
+    {% assign collection_ref = collections[collection.metafields.custom_fields["parent_collection_url"]] %}
+
+  {%- if collection_ref.title ==  'Asia' -%}
+  	  {% assign col_img_url =  'asia_countries_hero_bg.png' | asset_url  -%}
+  {%- elsif collection_ref.title ==  'NZ / Australia / Fiji' %}
+  	  {% assign col_img_url =  'auscountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'Europe' %}
+  	  {% assign col_img_url =  'europecountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'Middle East' %}
+  	  {% assign col_img_url =  'mecountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'USA, Canada, Mexico' %}
+  	  {% assign col_img_url =  'usacountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'South America' %}
+  	  {% assign col_img_url =  'sacountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'United Kingdom' %}
+  	  {% assign col_img_url =  'ukcountries_hero_bg.png' | asset_url   -%}
+  {%- elsif collection_ref.title ==  'Africa' %}
+  	  {% assign col_img_url =  'africacountries_hero_bg.png' | asset_url   -%}
+  {%- endif -%}
+  
+  
+  <header class="section-header text-center esim-header --collection-hero" style="background-color:#f6f6f6;">
+
+    <hr class="hr--small">
+
+    <div class="grid --collection --esim">
+      <div class="grid__item page-hero collection--page">
+        <div class="rte page-hero-inner">
+            {% assign collectionSlugArray = "asia,malaysia,nepal,japan,hong-kong,macao,south-korea,cambodia,myanmar,singapore,taiwan,thailand,indonesia,laos,china,philippines,sri-lanka,pakistan,vietnam,india,europe,belgium,spain,germany,france,greece,switzerland,poland,netherlands,austria,slovakia,malta,russia,finland,ireland,norway,portugal,sweden,latvia,slovenia,hungary,macedonia,czech-republic,italy,croatia,cyprus,iceland,bulgaria,denmark,romania,israel,usa-canada-mexico,usa,guatemala,canada,mexico,united-kingdom,nz-australia-fiji,new-zealand,australia,fiji,middle-east,kuwait,qatar,palestine,uae-dubai,oman,egypt,turkey,south-america,costa-rica,panama,brazil,el-salvador,peru,chile,argentina,uruguay,colombia,nicaragua,africa,south-africa,brussels,scotland,wales,macau" | split: ',' %}
+  			{% assign demonymArray = "Asian,Malaysian,Nepali,Japanese,Hongkonger,Macanese,Korean,Cambodian,Myanmar,Singaporean,Taiwanese,Thai,Indonesian,Laotian,Chinese,Filipina,Sri Lankan,Pakistani,Vietnamese,Indian,European,Belgian,Spaniard,Germans,French,Greeks,Swiss,Polish,Dutch,Austrian,Slovak,Maltese,Russian,Finnish,Irish,Norwegian,Portuguese,Swedish,Latvian,Slovenian,Hungarian,Macedonian,Czech,Italian,Croatian,Cypriot,Icelander,Bulgarian,Danes,Romanian,Israeli,American Canadian Mexican,American,Guatemalan,Canadian,Mexican,British,New Zealander Australian Fijian,New Zealander,Australian,Fijian,Middle Eastern,Kuwaitis,Qatari,Palestinian,Dubaite,Omani,Egyptian,Turkish,South American,Costa Rican,Panamanian,Brazilian,Salvadoran,Peruvian,Chilean,Argentinian,Uruguayan,Colombian,Nicaraguan,African,South African,Brusselaar,Scottish Scots,Welsh,Macau" | split: ',' %}
+			{% assign collectionHandle = collection.handle | remove: "-sim-card" %}
+      <h1 class="header-destination"><strong>Buy Travel SIM Cards For <span class="region--title-sim">{{ collection.title }}</span> In Australia</strong></h1>
+			<p>Best Value Travel Sim Cards for {{ collection.title }}. Buy your 
+              {% for slug in collectionSlugArray %}
+              {% if slug == collectionHandle  %}
+                {{ demonymArray[forloop.index0] }}
+              {% endif %}
+            {% endfor %} Travel Sim Card With Data Before You Fly! Perfect For Aussie Tourists. Buy Online From SimCorner. </p>
+            <div class="collection--accross">
+              <p class="review--text">Over 12,000+ 
+              <svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00"/>
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0025 13.5L20.711 16.2812L21.7215 10.3906L17.4406 6.21885L23.3567 5.35942L26.0025 0L28.6482 5.35942L34.5643 6.21885L30.2834 10.3906L31.294 16.2812L26.0025 13.5Z" fill="#ff7a00"/>
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M43.0025 13.5L37.711 16.2812L38.7215 10.3906L34.4406 6.21885L40.3567 5.35942L43.0025 0L45.6482 5.35942L51.5643 6.21885L47.2834 10.3906L48.294 16.2812L43.0025 13.5Z" fill="#ff7a00"/>
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M61.0025 13.5L55.711 16.2812L56.7215 10.3906L52.4406 6.21885L58.3567 5.35942L61.0025 0L63.6482 5.35942L69.5643 6.21885L65.2834 10.3906L66.294 16.2812L61.0025 13.5Z" fill="#ff7a00"/>
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M78.8323 13.5L73.5408 16.2812L74.5514 10.3906L70.2704 6.21885L76.1865 5.35942L78.8323 0L81.4781 5.35942L87.3942 6.21885L83.1132 10.3906L84.1238 16.2812L78.8323 13.5Z" fill="#ff7a00"/>
+              </svg>
+              Reviews across</p>
+              <div class="slider_rating_logos" bis_skin_checked="1">
+                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="google-logo" class="lazyload hs-lazyload hs-id-f3473e26" data-src="{{ 'google-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                 <div class="slider_logo_main" style=" margin-top: -10px;" bis_skin_checked="1"><img alt="facebook-logo" class="lazyload hs-lazyload hs-id-c7d7ab6b" data-src="{{ 'facebook-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="yotpo-logo" class="lazyload hs-lazyload hs-id-a965a9eb" data-src="{{ 'yotpo-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+              </div>
+           </div>
+            <div class="default-page-btn --yotpo">
+              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
+            </div>
+
+            <div class="default-page-btn --yotpo-mobile">
+              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
+            </div>
+        </div>
+        <div class="page-hero-inner-image" style="background-image:url({{ col_img_url }});height: 500px;border-radius: 10px;background-position: center;">
+
+        </div>
+        
+      </div>
+    </div>
+    
+
+    <div class="grid--full collection-sorting{% if section.settings.collection_sort_enable %} collection-sorting--enabled{% endif %}">
+      {%- if section.settings.collection_sort_enable -%}
+        {%- include 'collection-sorting' -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.collection_tags_enable -%}
+      {%- if collection.all_tags.size > 0 -%}
+        {%- if section.settings.collection_sort_enable -%}
+          <hr class="hr--small hr--clear">
+        {%- endif -%}
+        <ul class="tags tags--collection inline-list">
+          {% comment %}
+            Used for the catalog collection (/collections/all) and product collections (collections/{collection.handle})
+          {% endcomment %}
+          <li{% unless current_tags %} class="tag--active"{% endunless %}>
+            <a href="{% if collection.url == blank %}{{ routes.all_products_collection_url }}{% else %}{{ collection.url }}{% endif %}">
+              {{ 'collections.general.all_of_collection' | t }}
+            </a>
+          </li>
+
+          {%- for tag in collection.all_tags -%}
+            {%- if current_tags contains tag -%}
+              <li class="tag--active">
+                {{ tag | link_to_remove_tag: tag }}
+              </li>
+            {%- else -%}
+              <li>
+                {% comment %}
+                  Use link_to_add_tag if you want to allow filtering
+                  by multiple tags
+                {% endcomment %}
+                {{ tag | link_to_tag: tag }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.collection_tags_enable -%}
+      <hr class="hr--small hr--clear">
+    {%- endif -%}
+  </header>
+{% render 'breadcrumbs' %}
+  
+  
+  <!-- TABS -->
+  <div class="esim-collection-section">
+    <div class="esim-tabs-section collections-tab">
+       <div class="custom-tabs">
+          <div id="nav-tab-menu">
+             <div class="trigger-spec-tab"></div>
+          </div>
+          <div id="nav-tab">
+             <span class="trigger-tab" data-target="#all-tab">ALL</span>
+             <span class="trigger-tab" data-target="#physical-tab">PHYSICAL SIM</span>
+             <span class="trigger-tab" data-target="#esim-tab">eSIM</span>
+          </div>
+       </div>
+       <div id="main-tab" class="esim-collection">
+          <div class="targets-tab">
+             <div class="target-tab" id="all-tab">
+                <div class="esim-collection">
+                   {%- if collection.title contains 'NZ' -%}
+                   {%- assign multi_country_tag = 'oceania_multi_country' -%}
+                   {%- elsif collection.title contains 'USA' -%}
+                   {%- assign multi_country_tag = 'north_america_multi_country' -%}
+                   {%- elsif collection.title contains 'Middle' -%}
+                   {%- assign multi_country_tag = 'middleeast_multi_country' -%}
+                   {%- elsif collection.title contains 'United' -%}
+                   {%- assign multi_country_tag = 'uk_multi_country' -%}
+                   {%- else -%}
+                   {%- assign multi_country_tag = collection.title | replace: " ", "_" | downcase | append: '_multi_country' -%}
+                   {%- endif -%}
+                   {%- assign target_collection = collections[collection.handle] -%}
+                   <div class="grid-uniform continent_sim_cards">
+                      {%- assign grid_item_width = 'medium--one-half large--one-third' -%}
+                      <div class="carousel_main">
+                         <div class="carousel xx" id="carousel_one">
+                            {%- for product in target_collection.products -%}
+                            {%- include 'product-grid-item' -%}
+                            {%- endfor -%}
+                            
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="target-tab" id="physical-tab">
+                <div class="esim-collection">
+                   {%- if collection.title contains 'NZ' -%}
+                   {%- assign multi_country_tag = 'oceania_multi_country' -%}
+                   {%- elsif collection.title contains 'USA' -%}
+                   {%- assign multi_country_tag = 'north_america_multi_country' -%}
+                   {%- elsif collection.title contains 'Middle' -%}
+                   {%- assign multi_country_tag = 'middleeast_multi_country' -%}
+                   {%- elsif collection.title contains 'United' -%}
+                   {%- assign multi_country_tag = 'uk_multi_country' -%}
+                   {%- else -%}
+                   {%- assign multi_country_tag = collection.title | replace: " ", "_" | downcase | append: '_multi_country' -%}
+                   {%- endif -%}
+                   {%- assign target_collection = collections[collection.handle] -%}
+                   <div class="grid-uniform continent_sim_cards">
+                      {%- assign grid_item_width = 'medium--one-half large--one-third' -%}
+                      <div class="carousel_main">
+                         <div class="carousel" id="carousel_one">
+                            {%- capture esim_products_found -%}
+                            {%- for product in target_collection.products -%}
+                            {%- unless product.title contains 'eSIM' -%}
+                            {%- include 'product-grid-item' -%}
+                            {%- else -%}
+                            {% continue %}
+                            {%- endunless -%}
+                            {%- endfor -%}
+                            {%- endcapture -%}
+                            {%- if esim_products_found == "" -%}
+                            <p class="empty-products">No physical sim products found.</p>
+                            {%- else -%}
+                            {{ esim_products_found }}
+                            {%- endif -%}
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="target-tab" id="esim-tab">
+                <div class="esim-collection">
+                   {%- if collection.title contains 'NZ' -%}
+                   {%- assign multi_country_tag = 'oceania_multi_country' -%}
+                   {%- elsif collection.title contains 'USA' -%}
+                   {%- assign multi_country_tag = 'north_america_multi_country' -%}
+                   {%- elsif collection.title contains 'Middle' -%}
+                   {%- assign multi_country_tag = 'middleeast_multi_country' -%}
+                   {%- elsif collection.title contains 'United' -%}
+                   {%- assign multi_country_tag = 'uk_multi_country' -%}
+                   {%- else -%}
+                   {%- assign multi_country_tag = collection.title | replace: " ", "_" | downcase | append: '_multi_country' -%}
+                   {%- endif -%}
+                   {%- assign target_collection = collections[collection.handle] -%}
+                   <div class="grid-uniform continent_sim_cards">
+                      {%- assign grid_item_width = 'medium--one-half large--one-third' -%}
+                      <div class="carousel_main">
+                         <div class="carousel" id="carousel_one">
+                            {%- assign has_esim_products = false -%}
+                            {%- for product in target_collection.products -%}
+                            {%- if product.title contains 'eSIM' -%}
+                            {%- include 'product-grid-item' -%}
+                            {%- assign has_esim_products = true -%}
+                            {%- endif -%}
+                            {%- endfor -%}
+                            {%- if has_esim_products == false -%}
+                            <p class="empty-products">No eSIM products available.</p>
+                            {%- endif -%}
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- END TABS -->
+  
+  <div class="sub-categories-sec">
+    {% if collection.metafields.custom_fields["parent_collection_url_2"] != blank %}
+        {% assign collection_ref = collections[collection.metafields.custom_fields["parent_collection_url_2"]] %}
+        {%- assign siblings_collection_links = collection_ref.title -%} 
+          {%- if siblings_collection_links != blank -%}
+    
+              <h3>Shop By Other Destinations in {{ collection_ref.title }}</h3>
+              <nav>
+                <ul>
+                  
+                  {%- for link in linklists[collection_ref.handle].links -%}
+                    <li>
+                      <a href="{{ link.url}}">{{ link.title | escape }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </nav>
+    
+          {%- endif -%}
+    {% endif %}
+  </div>
+
+</div>
+{% schema %}
+{
+  "name": {
+    "da": "Kollektionssider",
+    "de": "Kategorieseiten",
+    "en": "Collection pages",
+    "es": "Páginas de colección",
+    "fi": "Kokoelman sivut",
+    "fr": "Pages de collection",
+    "hi": "कलेक्शन पेज",
+    "it": "Pagine delle collezioni",
+    "ja": "コレクションページ",
+    "ko": "컬렉션 페이지",
+    "ms": "Halaman koleksi",
+    "nb": "Samlingssider",
+    "nl": "Collectiepagina's",
+    "pt-BR": "Páginas de Coleções",
+    "pt-PT": "Páginas de Coleções",
+    "sv": "Produktseriesidor",
+    "th": "หน้าคอลเลกชัน",
+    "zh-CN": "产品系列页面",
+    "zh-TW": "商品系列頁面"
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "label": {
+        "da": "Vis kollektionsbillede",
+        "de": "Kategorie-Foto anzeigen",
+        "en": "Show collection image",
+        "es": "Mostrar imagen de la colección",
+        "fi": "Näytä kokoelman kuva",
+        "fr": "Afficher l'image de la collection",
+        "hi": "कलेक्शन इमेज दिखाएं",
+        "it": "Mostra immagine collezione",
+        "ja": "コレクションの画像を表示する",
+        "ko": "컬렉션 이미지 표시",
+        "ms": "Tunjukkan imej koleksi",
+        "nb": "Vis samlingsbilde",
+        "nl": "Collectieafbeelding weergeven",
+        "pt-BR": "Exibir imagem da coleção",
+        "pt-PT": "Mostrar imagem da coleção",
+        "sv": "Visa produktseriebilder",
+        "th": "แสดงรูปภาพคอลเลกชัน",
+        "zh-CN": "显示产品系列图片",
+        "zh-TW": "顯示商品系列圖片"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_sort_enable",
+      "label": {
+        "da": "Aktivér sortering af kollektioner",
+        "de": "Kategoriesortierung aktivieren",
+        "en": "Enable collection sorting",
+        "es": "Habilitar la la función ordenar colecciones",
+        "fi": "Ota kokoelman lajittelu käyttöön",
+        "fr": "Activer le tri de la collection",
+        "hi": "कलेक्शन क्रमबद्ध करना सक्षम करें",
+        "it": "Abilita ordinamento collezione",
+        "ja": "コレクションの並べ替えを有効にする",
+        "ko": "컬렉션 정렬 사용",
+        "ms": "Dayakan penyusunan koleksi",
+        "nb": "Aktiver sortering av samlinger",
+        "nl": "Sorteren op collectie inschakelen",
+        "pt-BR": "Habilitar a ordenação de coleções",
+        "pt-PT": "Ativar ordenação de coleção",
+        "sv": "Aktivera produktseriesortering",
+        "th": "เปิดใช้การเรียงลำดับคอลเลกชัน",
+        "zh-CN": "启用产品系列排序",
+        "zh-TW": "啟用商品系列排序功能"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_tags_enable",
+      "label": {
+        "da": "Aktivér tagfiltrering",
+        "de": "Tag-Filtern erlauben",
+        "en": "Enable tag filtering",
+        "es": "Habilitar filtro de etiquetas",
+        "fi": "Ota tunnisteiden suodatus käyttöön",
+        "fr": "Activer le filtrage par balises",
+        "hi": "टैग फ़िल्टर करना सक्षम करें",
+        "it": "Attiva filtro tag",
+        "ja": "タグでの絞り込みを有効にする",
+        "ko": "태그 필터링 사용",
+        "ms": "Dayakan penapisan tag",
+        "nb": "Aktiver taggfiltrering",
+        "nl": "Filteren op tags inschakelen",
+        "pt-BR": "Habilitar filtragem de tag",
+        "pt-PT": "Ativar filtragem por etiqueta",
+        "sv": "Aktivera taggfiltrering",
+        "th": "เปิดใช้การกรองแท็ก",
+        "zh-CN": "启用标签筛选",
+        "zh-TW": "啟用標籤篩選功能"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Produkter",
+        "de": "Produkte",
+        "en": "Products",
+        "es": "Productos",
+        "fi": "Tuotteet",
+        "fr": "Produits",
+        "hi": "उत्पाद",
+        "it": "Prodotti",
+        "ja": "商品管理",
+        "ko": "제품",
+        "ms": "Produk",
+        "nb": "Produkter",
+        "nl": "Producten",
+        "pt-BR": "Produtos",
+        "pt-PT": "Produtos",
+        "sv": "Produkter",
+        "th": "สินค้า",
+        "zh-CN": "产品",
+        "zh-TW": "產品"
+      }
+    },
+    {
+      "type": "select",
+      "id": "collection_products_grid",
+      "label": {
+        "da": "Gittertypografi",
+        "de": "Rasterstil",
+        "en": "Grid style",
+        "es": "Estilo de cuadrícula",
+        "fi": "Ruudukon tyyli",
+        "fr": "Style de grille",
+        "hi": "ग्रिड स्टाइल",
+        "it": "Stile griglia",
+        "ja": "グリッドスタイル",
+        "ko": "그리드 스타일",
+        "ms": "Gaya grid",
+        "nb": "Rutenettstil",
+        "nl": "Rasterstijl",
+        "pt-BR": "Estilo da grade",
+        "pt-PT": "Estilo da grelha",
+        "sv": "Rutnätsstil",
+        "th": "สไตล์กริด",
+        "zh-CN": "网格样式",
+        "zh-TW": "網格樣式"
+      },
+      "options": [
+        {
+          "value": "collage",
+          "label": {
+            "da": "Collage",
+            "de": "Collage",
+            "en": "Collage",
+            "es": "Collage",
+            "fi": "Kollaasi",
+            "fr": "Collage",
+            "hi": "कोलाज",
+            "it": "Collage",
+            "ja": "コラージュ",
+            "ko": "콜라주",
+            "ms": "Kolaj",
+            "nb": "Fotomontasje",
+            "nl": "Collage",
+            "pt-BR": "Colagem",
+            "pt-PT": "Colagem",
+            "sv": "Kollage",
+            "th": "ภาพตัดแปะ",
+            "zh-CN": "拼贴画",
+            "zh-TW": "拼貼"
+          }
+        },
+        {
+          "value": "grid",
+          "label": {
+            "da": "Gitter",
+            "de": "Raster",
+            "en": "Grid",
+            "es": "Cuadrícula",
+            "fi": "Ruudukko",
+            "fr": "Grille",
+            "hi": "ग्रिड",
+            "it": "Griglia",
+            "ja": "グリッド",
+            "ko": "그리드",
+            "ms": "Grid",
+            "nb": "Rutenett",
+            "nl": "Raster",
+            "pt-BR": "Grade",
+            "pt-PT": "Grelha",
+            "sv": "Rutnät",
+            "th": "กริด",
+            "zh-CN": "网格",
+            "zh-TW": "網格"
+          }
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "product_vendor_enable",
+      "label": {
+        "da": "Vis produktleverandør",
+        "de": "Produktverkäufer anzeigen",
+        "en": "Show product vendor",
+        "es": "Mostrar proveedor del producto",
+        "fi": "Näytä tuotteen myyjä",
+        "fr": "Afficher le distributeur du produit",
+        "hi": "उत्पाद विक्रेता दिखाएं",
+        "it": "Indica fornitore prodotto",
+        "ja": "商品の販売元を表示する",
+        "ko": "제품 공급 업체 표시",
+        "ms": "Tunjukkan vendor produk",
+        "nb": "Vis produktleverandør",
+        "nl": "Productleverancier weergeven",
+        "pt-BR": "Exiba o fornecedor do produto",
+        "pt-PT": "Mostrar o fornecedor do produto",
+        "sv": "Visa produktsäljare",
+        "th": "แสดงผู้ขายสินค้า",
+        "zh-CN": "显示产品厂商",
+        "zh-TW": "顯示產品廠商"
+      }
+    }
+  ]
+}
+{% endschema %}

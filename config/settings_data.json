@@ -1,0 +1,1107 @@
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_headings": "#222323",
+    "color_body_text": "#222323",
+    "color_borders": "#1c1d1d",
+    "color_button_text": "#ffffff",
+    "color_primary": "#1c1d1d",
+    "color_secondary": "#a26b25",
+    "color_product_background": "#f7f7f7",
+    "color_sale_tag": "#990000",
+    "color_input": "#f6f6f6",
+    "color_newsletter": "#fff",
+    "color_drawer_background": "#fff",
+    "color_drawer_text": "#ffffff",
+    "color_drawer_border": "#343535",
+    "color_drawer_button": "#a26b25",
+    "color_drawer_button_text": "#ffffff",
+    "type_header_family": "muli_n4",
+    "type_header_base_size": "30px",
+    "type_header_border_thickness": "1px",
+    "type_accent_family": "muli_n4",
+    "type_accent_transform": false,
+    "type_accent_spacing": false,
+    "type_accent_subheadings": false,
+    "type_base_family": "muli_n4",
+    "type_base_size": "16px",
+    "type_base_italize_titles": false,
+    "cart_type": "drawer",
+    "cart_notes_enable": false,
+    "share_image": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/SimCorner",
+    "social_twitter_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/simcornertravel\/",
+    "social_snapchat_link": "",
+    "social_google_plus_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCKt2fiilW-rFqqfM4N8oSKg",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_bff873d1-ae52-4a3f-859b-1991cb5c1ebb.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#ffad31",
+    "checkout_button_color": "#ffad31",
+    "checkout_error_color": "#e32c2b",
+    "checkout_banner_background_color": "#fff",
+    "checkout_call_to_action_color": "#a26b25",
+    "checkout_use_header_image": false,
+    "collection_products_grid": "collage",
+    "customer_layout": "customer_area",
+    "favicon_enable": false,
+    "product_vendor_enable": false,
+    "social_sharing_style": "clean",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo_bff873d1-ae52-4a3f-859b-1991cb5c1ebb.png",
+          "logo_max_width": "180",
+          "search": "modal",
+          "main_menu_link_list": "main-menu",
+          "drawer_bottom_link_list": "footer",
+          "drawer_search_enable": true,
+          "show_announcement": true,
+          "home_page_only": true,
+          "text": "Announce something here",
+          "link": "",
+          "color_bg": "#1c1d1d",
+          "color_text": "#ffffff"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-0": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home_banner.jpg",
+              "image_position": "center center",
+              "image_overlay": true,
+              "image_overlay_opacity": 50,
+              "text_alignment": "center",
+              "slide_heading": "Where are you travelling to?",
+              "slide_subheading": "Great deals and low cost shipping worldwide.",
+              "slide_text_color": "#ffffff",
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "rgba(0,0,0,0)",
+              "button_label": "Sim Cards",
+              "button_link": "shopify:\/\/pages\/regions",
+              "button_label_right": "Accessories",
+              "button_link_right": "shopify:\/\/pages\/accessories"
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0"
+        ],
+        "settings": {
+          "home_hero_height": "full",
+          "hero_home_auto": false,
+          "home_hero_auto_speed": 5
+        }
+      },
+      "featured-products": {
+        "type": "featured-products",
+        "disabled": true,
+        "settings": {
+          "title": "Featured collection",
+          "home_featured_products": "our-popular-esims",
+          "collection_products_grid": "grid"
+        }
+      },
+      "featured-content": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "Dream More, Travel Later",
+          "text": "<p>Travelling and wandering the world is quite the adventure, but sharing memories and staying in touch with those who matter shouldn’t come at a cost. That's where SimCorner comes in. Our prepaid travel SIM cards and International SIM cards offers easy, affordable, and reliable travel SIM cards for a variety of destinations around the world. Making sure your globetrotting doesn’t come with hefty roaming fees and that you stay connected with ease.<\/p>",
+          "text_size": "medium"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Get Exclusive Offers",
+          "subheading": "<p>Sign up and join our newsletter for updates on latest news and offers<\/p>"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_link_list": "footer",
+          "show_payment_icons": true
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "blocks": {
+          "1578435321069": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1578435321069"
+        ],
+        "settings": {
+          "show_collection_image": true,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "1576150436151": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "Why Travellers Love Us",
+          "text": "",
+          "text_size": "medium"
+        }
+      },
+      "1576150750165": {
+        "type": "featured-content",
+        "disabled": true,
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "Share your moments",
+          "text": "<p>Gas prices are soaring! This has resulted in elevated travel expenses. If you travel by car, YOU have some control.<br\/><br\/>Tag us at <a href=\"https:\/\/www.simcorner.com.au\/\" title=\"https:\/\/www.simcorner.com.au\/\">#SimCorner<\/a><\/p>",
+          "text_size": "medium"
+        }
+      },
+      "collection-template-europe": {
+        "type": "collection-template-europe",
+        "settings": {
+          "show_collection_image": true,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "zoom_enable": false,
+          "social_sharing_products": true,
+          "product_vendor_enable": false,
+          "image_layout": "thumbnails",
+          "quantity_enabled": true,
+          "product_selector": "radio",
+          "enable_payment_button": false,
+          "add_to_cart_button_size": "small"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "Recommended Travel Sim Cards"
+        }
+      },
+      "product-attributes": {
+        "type": "product-attributes",
+        "settings": {
+        }
+      },
+      "1579722112294": {
+        "type": "yotpo-reviews",
+        "settings": {
+          "home_page_full_width": false,
+          "section_title": "Hear what they say...",
+          "text": "",
+          "text_size": "medium"
+        }
+      },
+      "1579897187194": {
+        "type": "features-love",
+        "blocks": {
+          "1579897187194-0": {
+            "type": "html",
+            "settings": {
+              "toptitle": "Connection",
+              "image": "shopify:\/\/shop_images\/Simcorner_Hompage_Images_Icon_Connection.png",
+              "code": "<p>Who needs the stress of roaming fees? Travel smart with prepaid International SIM cards from SimCorner. Choose the right option for your needs and stay connected without hassle.<\/p>",
+              "width": "33%",
+              "alignment": "top-middle"
+            }
+          },
+          "1579898947462": {
+            "type": "html",
+            "settings": {
+              "toptitle": "Convenience",
+              "image": "shopify:\/\/shop_images\/Simcorner_Hompage_Images_Icon_Convenience.png",
+              "code": "<p>No roaming fees, hidden fees, or extra costs!  Get a travel sim card from SimCorner and save money when travelling abroad at the best deal possible. Travel the world with your mobile phone.<\/p>",
+              "width": "33%",
+              "alignment": "top-middle"
+            }
+          },
+          "1579898980463": {
+            "type": "html",
+            "settings": {
+              "toptitle": "Customer Service",
+              "image": "shopify:\/\/shop_images\/Simcorner_Hompage_Images_Icon_Support.png",
+              "code": "<p>Need help? Travel suggestions? Trouble finding the right plan? Our team of experts is here to help you with your travel SIM card needs. The right travel sim card makes all the difference to your trip. <\/p>",
+              "width": "33%",
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1579897187194-0",
+          "1579898947462",
+          "1579898980463"
+        ],
+        "settings": {
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1590999809227": {
+            "type": "collection",
+            "settings": {
+              "collection": "europe-sim-card"
+            }
+          },
+          "1591013020909": {
+            "type": "collection",
+            "settings": {
+              "collection": "usa-canada-mexico-sim-card"
+            }
+          },
+          "1590999910693": {
+            "type": "collection",
+            "settings": {
+              "collection": "asia-sim-card"
+            }
+          },
+          "1590999863604": {
+            "type": "collection",
+            "settings": {
+              "collection": "nz-australia-fiji-sim-card"
+            }
+          },
+          "1590999888037": {
+            "type": "collection",
+            "settings": {
+              "collection": "united-kingdom-sim-card"
+            }
+          },
+          "1590999964449": {
+            "type": "collection",
+            "settings": {
+              "collection": "south-america-sim-card"
+            }
+          },
+          "1590999950106": {
+            "type": "collection",
+            "settings": {
+              "collection": "africa-sim-card"
+            }
+          },
+          "1590999937751": {
+            "type": "collection",
+            "settings": {
+              "collection": "middle-east-sim-card"
+            }
+          }
+        },
+        "block_order": [
+          "1590999809227",
+          "1591013020909",
+          "1590999910693",
+          "1590999863604",
+          "1590999888037",
+          "1590999964449",
+          "1590999950106",
+          "1590999937751"
+        ],
+        "settings": {
+          "display_type": "selected",
+          "sort": "alphabetical"
+        }
+      },
+      "1580442381343": {
+        "type": "advanced-content",
+        "blocks": {
+          "1580442381343-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"insta_heading\">\nTake Us With You!\n<\/div>\n<div class=\"insta_subheading\">\nSpoken to mum from the middle of the desert? Video-called from the top of a mountain? \nShow us where you’ve been, where you’re planning to travel to, or tag us in a cheeky travel story! We want to hear from you.\n<\/div>\n<div class=\"insta_tag\">\nConnect with us today: <span><a href=\"https:\/\/www.instagram.com\/simcornertravel\/\" target=\"_blank\">@simcornertravel<\/a><\/span> \/ <span><a href=\"https:\/\/www.instagram.com\/simcornertravel\/\" target=\"_blank\">#StayConnected<\/a><\/span>\n<\/div>\n<div id=\"insta-feed\"><\/div>",
+              "width": "75%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1580442381343-0"
+        ],
+        "settings": {
+          "background_color": "#ffffff"
+        }
+      },
+      "collection-popular-destinations": {
+        "type": "collection-popular-destinations",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "collection-template-city": {
+        "type": "collection-template-city",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "1585306479430": {
+        "type": "advanced-content",
+        "blocks": {
+          "1585306479430-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"travel_otr\">\n\t<div class=\"full-sec travel_main\">\n\t\t<div class=\"sec-left-sm travel_inn_main\">\n\t\t\t<a href=\"\/pages\/regions\">\n\t\t\t\t<div class=\"travel_inn_otr\">\n\t\t\t\t\t<img data-src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0179\/4388\/7926\/files\/Simcorner_Simcards_main1.png?v=1586234587\" class=\"lazyload\" width=\"429\" height=\"300\">\n\t\t\t\t\t<p>Sim cards<\/p>\n\t\t\t\t<\/div>\n\t\t\t<\/a>\n\t\t<\/div>\n\t\t<div class=\"sec-left-acc travel_inn_main\">\n\t\t\t<a href=\"\/pages\/accessories\">\n\t\t\t\t<div class=\"travel_inn_otr\">\n\t\t\t\t\t<img data-src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0179\/4388\/7926\/files\/Simcorner_Accessories_main1.png?v=1586234363\" class=\"lazyload\" width=\"429\" height=\"300\">\n\t\t\t\t\t<p>Accessories<\/p>\n\t\t\t\t<\/div>\n\t\t\t<\/a>\n\t\t<\/div>\n\t<\/div>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1585306479430-0"
+        ],
+        "disabled": true,
+        "settings": {
+          "background_color": "#ffffff"
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "message": true,
+          "home_page_only": false,
+          "header_padding": 0,
+          "message_text": "AUSSIE OWNED & OPERATED | FAST & FREE SHIPPING | Money Back Guarantee",
+          "free_shipping_countdown": false,
+          "free_shipping_threshold": 25,
+          "free_shipping_notqualified": "Add just [price] to your cart to receive free shipping!",
+          "free_shipping_qualified": "Your order qualifies for free shipping!",
+          "message_link": "",
+          "color_bg": "#ffad31",
+          "color_text": "#ffffff",
+          "color_text_hover": "#eeeeee",
+          "font_size": 14
+        }
+      },
+      "collection-template-brand": {
+        "type": "collection-template-brand",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "custom-fields-collections": {
+        "type": "custom-fields-collections",
+        "settings": {
+        }
+      },
+      "16461925533e1b6f63": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "",
+          "text": "",
+          "text_size": "medium"
+        }
+      },
+      "16461926117acfb65d": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#bcbcbc",
+          "home_page_full_width": false,
+          "section_title": "About SimCorner",
+          "text": "<p>Travelling to <a href=\"https:\/\/simcorner.com\/collections\/europe-sim-card\"><span style=\"text-decoration:underline\">Europe<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/africa-sim-card\"><span style=\"text-decoration:underline\">Africa<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/asia-sim-card\"><span style=\"text-decoration:underline\">Asia<\/span><\/a>, the <a href=\"https:\/\/simcorner.com\/collections\/united-kingdom-sim-card\"><span style=\"text-decoration:underline\">United Kingdom<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/south-america-sim-card\"><span style=\"text-decoration:underline\">South America<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/nz-australia-fiji-sim-card\"><span style=\"text-decoration:underline\">NZ<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/fiji-sim-card\"><span style=\"text-decoration:underline\">Fiji<\/span><\/a>, <a href=\"https:\/\/simcorner.com\/collections\/middle-east-sim-card\"><span style=\"text-decoration:underline\">Middle East<\/span><\/a>, or the <a href=\"https:\/\/simcorner.com\/collections\/usa-canada-mexico-sim-card\"><span style=\"text-decoration:underline\">USA<\/span><\/a>? No matter where you’re going in the world, SimCorner is the one you can rely on for a cheap travel SIM and International SIM cards that keeps you connected to your loved ones, and allows you to document every moment of your trip in real time. <\/p><p>Prepare for any adventure with an international SIM card that can be conveniently and quickly delivered right to your door in Australia. With a SimCorner prepaid travel SIM, you’ll be ready to begin your journey as soon as you land without having to worry about searching for a SIM card to use your phone. <\/p>",
+          "text_size": "medium"
+        }
+      },
+      "1646192648a408ea32": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "What Sets Us Apart",
+          "text": "<p>When you choose SimCorner, you can travel with peace of mind knowing that you’ll never miss an important message, get stranded, or need to borrow a stranger’s phone in an emergency. We provide travellers with cheap SIM cards, reliable coverage, convenient delivery, and exceptional customer service. Whether you're searching for a travel SIM card, travel data SIM, or a reliable solution for international communication, we have you covered. Experience the difference of a SimCorner travel SIM on your next trip abroad.<\/p><p><\/p><p>SimCorner is proud to offer the most competitive prices on international travel SIM cards in Australia. If you happen to find a better deal anywhere else, we’ll beat it by 10%, according to our <a href=\"https:\/\/simcorner.com\/pages\/simcorner-price-beat-guarantee\"><span style=\"text-decoration:underline\">Price Beat Guarantee<\/span><\/a>. <\/p>",
+          "text_size": "medium"
+        }
+      },
+      "16461926904ba6300e": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "Get in touch",
+          "text": "<p>If you need any assistance finding a SIM card for overseas travel, <a href=\"https:\/\/simcorner.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">reach out<\/span><\/a> to our friendly team who will be happy to help. <\/p>",
+          "text_size": "medium"
+        }
+      },
+      "16534739608e1db041": {
+        "type": "featured-collection-slider",
+        "settings": {
+          "title": "Popular Travel SIM Cards",
+          "home_featured_products": "popular-destination"
+        }
+      },
+      "collection-template-eSIM": {
+        "type": "collection-template-eSIM",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "social_sharing_blog": true
+        }
+      },
+      "featured-collection-slider": {
+        "type": "featured-collection-slider",
+        "settings": {
+          "title": "Popular Products",
+          "home_featured_products": "best-sellers"
+        }
+      },
+      "cb8de694-2739-4596-87b7-866440840111": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "TOP TRAVEL TIPS AND HACKS",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_date": false,
+          "blog_show_author": false,
+          "blog_show_image": true,
+          "blog_show_excerpt": true,
+          "show_view_all": true,
+          "section-spacing": 75
+        }
+      },
+      "featured-collection-eSIM-slider": {
+        "type": "featured-collection-eSIM-slider",
+        "settings": {
+          "title": "Popular eSIM Products",
+          "home_featured_products": "our-popular-esims"
+        }
+      },
+      "c47d2e4b-06db-49d7-9675-cb6a3b97ada0": {
+        "type": "advanced-content",
+        "blocks": {
+          "c47d2e4b-06db-49d7-9675-cb6a3b97ada0-html-1": {
+            "type": "html",
+            "settings": {
+              "code": "<script type=\"application\/ld+json\">\n{\n  \"@context\": \"https:\/\/schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Why do you need an international travel SIM card?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Let’s face it — life’s pretty hard in the modern world without a smartphone. If you’re travelling overseas to a country where you don’t speak the language, planning an adventure a little off the beaten track, or just want to check the weather during your first night in a new town, you’re going to need a working phone. While your regular phone might be OK on the hotel Wi-Fi, only travel SIM cards can allow you to use phone data, send messages and make calls without racking up hefty roaming charges from your at-home mobile service provider.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Which prepaid SIM card is best?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The best prepaid SIM card depends on your destination. SimCorner offers international travel SIM cards for various regions, including Europe, USA, Canada, Mexico, Asia, New Zealand, Australia, Fiji, UK, South America, Africa, and the Middle East. If your specific destination is not listed, you can still inquire with SimCorner to find the best option for staying connected.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What makes SimCorner prepaid SIMs easy to use?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"All of the international travel SIM cards from SimCorner are designed especially for travellers, pre-loaded with set features and without any hidden fees or expensive roaming data charges. Once you’ve bought your prepaid SIM, you’ll never be charged for anything extra when you start using it.\nOur prepaid SIMS come with plenty of data, so you can make internet calls back home, and video loved ones from the top of a mountain or a sunny beach. Prepaid data allows you to easily check directions when you’re out and about and share images of your trip in real-time.\nPlus, our travel SIM cards come with thousands of minutes of inter-SIM calls, meaning if you and a family member or friend both purchase one, it’s free to contact each other during your trip. How easy is that?\n\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What happens if I use up all my data?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"All of our prepaid SIMs have a 15-day or 30-day service period from the date of activation — so you won’t start using up your data before putting the travel SIM card into your phone.\nAre you going to be away for longer, or are you planning on using some serious data while you’re away for remote work or long chats with Mum? Simply purchase multiple prepaid SIMs. Once you’ve used up your data on one, you can switch it out for a new prepaid SIM and keep connected.\nSome of our travel SIM cards also come with an option to top up credit on your existing SIM. Before you buy one of our prepaid SIMs, you can check if this is the case under ‘Things to Know’ on the product page.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Will a travel SIM card work on my phone?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"All of our international travel SIM cards are supplied by reputable telecommunications providers in different parts of the world. Using them is safe and easy, but you will need to make sure your mobile device is unlocked before you leave for your big holiday. Having a postpaid phone on a plan with a local carrier isn’t the same as having a locked device — but if you’re not sure, your mobile service provider can double-check for you and help you unlock your device for easy international use.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What will my phone number be?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"SimCorner offer different travel SIM cards. The phone number associated with your travel SIM card depends on the type of SIM you choose. Some SIMs come with phone numbers noted on the package, others get sent by the provider to your phone. For data-only SIMs, you won't have a local number, but you can use internet-based calling and messaging services; think WhatsApp, Facebook Messenger, Viber, Snapchat, Skype, iMessage or Signal.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Will I still be able to access my contacts, emails, and messages with a travel SIM card?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" Yep! A prepaid SIM won’t alter, delete or change any information on your phone — you’ll still be able to view your apps, messages and any other information saved to the handset. If your contacts are saved in the storage on your current SIM, it’s a good idea to transfer these to your phone’s internal storage or back them up so you can access them at any time. Your WhatsApp and Messenger contacts will all still be on your phone.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What do I do to start using my prepaid SIM?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" When you receive your travel SIM card from SimCorner, the first step you’ll need to do is register it with us. Then, wait until you’ve reached your destination to insert the SIM card into your phone — it will activate from anywhere in the world, so you want your daily countdown to start when you’ve arrived in the country. Make sure your mobile data and data roaming services are turned on and fully enabled so you’re ready to start taking in the sights and sounds like a local!.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can I use an international travel SIM card with other non-mobile devices?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" Most of our travel SIM cards are compatible with mobiles only, and may not work on tablets or iPads. However, you can use your mobile as a hotspot to share data with other devices. SimCorner also offers specific data-only SIM options for iPads and tablets in certain countries and regions.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What if something goes wrong?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"SimCorner offers around-the-clock support and a money-back guarantee on all of our prepaid SIM cards — you just need to let us know about any problems as they occur. When you reach your destination, we recommend activating your SIM card at the airport, so you have a Wi-Fi connection to reach out to customer support if anything doesn’t look right.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Is there anything else I need?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" If you’ve been a clever clog and thought ahead with a prepaid SIM to your holiday destination, you might start to rest on your laurels. Don’t forget accessories to keep you in touch throughout your trip!\nShop our range of accessories to ensure you have all the travel essentials; from universal power adaptors to wireless phone charger power banks, we’ve got everything you need to stay connected no matter where you are in the world. While you’re there, why not pick up a mask for the plane and a journal to keep all of your brilliant holiday thoughts in?\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What are your shipping and delivery options?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" SimCorner is proud to deliver all over Australia, shipped from Melbourne. We offer a few different options depending on how soon you are travelling. If you need the sim cards urgently, we offer express shipping that can take 1-3 business day. Otherwise we offer 5-7 business days or 6-9 business days free shipping option.”\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How do I enquire about getting a prepaid SIM card?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \" If you’ve got a solo trip, a family holiday or a big adventure with the gang planned, a prepaid SIM card will keep you in touch with those back home and prepare you for any challenges that come your way.\nTo pick the right data plan and prepaid SIM for your holiday, get in touch with our friendly team today. We’ll be able to talk you through all the options available and set you up with the best value plan that will suit your needs.\"\n      }\n    }\n  ]\n}\n<\/script>\n\n\n<div class=\"grid\">\n<div class=\"grid__item large--four-fifths push--large--one-tenth\">\n<div class=\"rte rte--nomargin rte--indented-images\">\n<div id=\"tab-3\" class=\"ul_tabs_inner\">\n\n<!--Number 1-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">Why do you need an international travel SIM card?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>Let’s face it — life’s pretty hard in the modern world without a smartphone. If you’re travelling overseas to a country where you don’t speak the language, planning an adventure a little off the beaten track, or just want to check the weather during your first night in a new town, you’re going to need a working phone. While your regular phone might be OK on the hotel Wi-Fi, only travel SIM cards can allow you to use phone data, send messages and make calls without racking up hefty roaming charges from your at-home mobile service provider.<\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 2-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">Which prepaid SIM card is best?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>The best prepaid SIM card depends on your destination. SimCorner offers international travel SIM cards for various regions, including Europe, USA, Canada, Mexico, Asia, New Zealand, Australia, Fiji, UK, South America, Africa, and the Middle East. If your specific destination is not listed, you can still enquire with SimCorner to find the best option for staying connected<\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 3-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What makes SimCorner prepaid SIMs easy to use?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>All of the international travel SIM cards from SimCorner are designed especially for travellers, pre-loaded with set features and without any hidden fees or expensive roaming data charges. Once you’ve bought your prepaid SIM, you’ll never be charged for anything extra when you start using it. <\/p>\n<p>Our prepaid SIMS come with plenty of data, so you can make internet calls back home, and video loved ones from the top of a mountain or a sunny beach. Prepaid data allows you to easily check directions when you’re out and about and share images of your trip in real-time. <\/p>\n<p>Plus, our travel SIM cards come with thousands of minutes of inter-SIM calls, meaning if you and a family member or friend both purchase one, it’s free to contact each other during your trip. How easy is that? <\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 4-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What happens if I use up all my data?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>All of our prepaid SIMs have a 15-day or 30-day service period from the date of activation — so you won’t start using up your data before putting the travel SIM card into your phone. <\/p>\n<p>Are you going to be away for longer, or are you planning on using some serious data while you’re away for remote work or long chats with Mum? Simply purchase multiple prepaid SIMs. Once you’ve used up your data on one, you can switch it out for a new prepaid SIM and keep connected. <\/p>\n<p>Some of our travel SIM cards also come with an option to top up credit on your existing SIM. Before you buy one of our prepaid SIMs, you can check if this is the case under ‘Things to Know’ on the product page.<\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 5-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">Will a travel SIM card work on my phone?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\"><p>All of our international travel SIM cards are supplied by reputable telecommunications providers in different parts of the world. Using them is safe and easy, but you will need to make sure your mobile device is unlocked before you leave for your big holiday. Having a postpaid phone on a plan with a local carrier isn’t the same as having a locked device — but if you’re not sure, your mobile service provider can double-check for you and help you unlock your device for easy international use.<\/p><\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 6-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What will my phone number be?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p> SimCorner offer different travel SIM cards. The phone number associated with your travel SIM card depends on the type of SIM you choose. Some SIMs come with phone numbers noted on the package, others get sent by the provider to your phone. For data-only SIMs, you won't have a local number, but you can use internet-based calling and messaging services; think WhatsApp, Facebook Messenger, Viber, Snapchat, Skype, iMessage or Signal.<\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 7-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">WIll I still be able to access my contacts, emails and messages with a travel SIM card?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\"><p>Yep! A prepaid SIM won’t alter, delete or change any information on your phone — you’ll still be able to view your apps, messages and any other information saved to the handset. If your contacts are saved in the storage on your current SIM, it’s a good idea to transfer these to your phone’s internal storage or back them up so you can access them at any time. Your WhatsApp and Messenger contacts will all still be on your phone.<\/p><\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 8-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What do I do to start using my prepaid SIM?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\"><p>When you receive your travel SIM card from SimCorner, the first step you’ll need to do is register it with us. Then, wait until you’ve reached your destination to insert the SIM card into your phone — it will activate from anywhere in the world, so you want your daily countdown to start when you’ve arrived in the country. Make sure your mobile data and data roaming services are turned on and fully enabled so you’re ready to start taking in the sights and sounds like a local!<\/p><\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 9-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">Can I use an international travel SIM card with other non-mobile devices?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\"><p>Most of our travel SIM cards are compatible with mobiles only, meaning they won’t work on iPads or other tablets. However, you can use your mobile as a hotspot to share data with other devices. SimCorner also offers specific data-only SIM options for iPads and tablets in certain countries and regions. <\/p><\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 10-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What if something goes wrong? <\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\"><p>SimCorner offers around-the-clock support and a money-back guarantee on all of our prepaid SIM cards — you just need to let us know about any problems as they occur. When you reach your destination, we recommend activating your SIM card at the airport, so you have a Wi-Fi connection to reach out to customer support if anything doesn’t look right.<\/p><\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 11-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">Is there anything else I need?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>If you’ve been a clever clog and thought ahead with a prepaid SIM to your holiday destination, you might start to rest on your laurels. Don’t forget accessories to keep you in touch throughout your trip! <\/p>\n<p>Shop our range of <a href=\"https:\/\/simcorner.com\/pages\/accessories\">accessories<\/a> to ensure you have all the travel essentials; from universal power adaptors to wireless phone charger power banks, we’ve got everything you need to stay connected no matter where you are in the world. While you’re there, why not pick up a mask for the plane and a journal to keep all of your brilliant holiday thoughts in? <\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 12-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">What are your shipping and delivery options?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>SimCorner is proud to deliver all over Australia, shipped from Melbourne. We offer a few different options depending on how soon you are travelling. If you need the sim cards urgently, we offer express shipping that can take 1-3 business day. Otherwise we offer 5-7 business days or 6-9 business days free shipping option. <\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<!--Number 13-->\n<div class=\"accordion\"><\/div>\n<div class=\"panel_acc_outer ul_tabs_inner_main \">\n<button class=\"accordion\">How do I enquire about getting a prepaid SIM card?<\/button>\n<div class=\"panel\">\n<div class=\"custom-field custom-field__domestic-shipping-in-australia custom-field__type--html\">\n<div class=\"custom-field--value\">\n<p>If you’ve got a solo trip, a family holiday or a big adventure with the gang planned, a prepaid SIM card will keep you in touch with those back home and prepare you for any challenges that come your way. <\/p>\n<p>To pick the right data plan and prepaid SIM for your holiday, <a href=\"https:\/\/simcorner.com\/pages\/contact-us\">get in touch<\/a> with our friendly team today. We’ll be able to talk you through all the options available and set you up with the best value plan that will suit your needs.<\/p>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<\/div>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "c47d2e4b-06db-49d7-9675-cb6a3b97ada0-html-1"
+        ],
+        "custom_css": [
+          ".grid {margin-left: 20px; margin-right: 40px;}"
+        ],
+        "settings": {
+          "background_color": "#ffffff"
+        }
+      },
+      "b0682358-af3b-4b22-ab7c-6dc216e0b52d": {
+        "type": "featured-collection-eSIM-slider",
+        "custom_css": [
+          ".popular_heading {margin-top: -80px; margin-bottom: 40px;}"
+        ],
+        "settings": {
+          "title": "Frequently Asked Questions",
+          "home_featured_products": ""
+        }
+      },
+      "0ab46d22-7aea-451d-8d52-cee3fb1fed4a": {
+        "type": "advanced-content",
+        "blocks": {
+          "0ab46d22-7aea-451d-8d52-cee3fb1fed4a-html-1": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"yotpo yotpo-pictures-widget\" data-gallery-id=\"624b8d76746a4015d63cc863\">\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "0ab46d22-7aea-451d-8d52-cee3fb1fed4a-html-1"
+        ],
+        "settings": {
+          "background_color": "#ffffff"
+        }
+      },
+      "2c087037-e3ed-4032-9589-ee3e2f8c6f63": {
+        "type": "featured-collection-slider-v2",
+        "settings": {
+          "title": "Popular eSIM For Travel",
+          "home_featured_products": "our-popular-esims"
+        }
+      },
+      "collection-template-accessories": {
+        "type": "collection-template-accessories",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "featured_content_chHF3r": {
+        "type": "featured-content",
+        "settings": {
+          "check_background_color": false,
+          "background_color": "#ffffff",
+          "home_page_full_width": false,
+          "section_title": "Can I Use An eSIM for International Travel?",
+          "text": "<p>Yes, eSIMs are excellent for international travel, as you can easily switch to a local carrier's plan without needing a physical SIM card. <\/p><p>Discover the benefits of using an eSIM for travel, whether you're heading to the USA, Europe, Japan, Asia etc. Our <a href=\"\/collections\/usa-esim\" title=\"USA eSIMs\">USA eSIM <\/a>ensures you stay connected while exploring the States, while the <a href=\"\/collections\/europe-esim\" title=\"Europe eSIMs\">Europe eSIM<\/a> offers across multiple European countries. Traveling to Japan? Discover the convenience of a <a href=\"\/collections\/japan-esim\" title=\"Japan eSIMs\">Japan eSIM<\/a>. And if you're exploring Asia, our <a href=\"\/collections\/asia-esim\" title=\"Asia eSIMs\">eSIM Asia<\/a> covers you across the region. Say hello to easy, borderless connectivity with eSIM for travel.<\/p>",
+          "text_size": "medium"
+        }
+      },
+      "advanced_content_K8QjyT": {
+        "type": "advanced-content",
+        "blocks": {
+          "html_mqGkLm": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"grid__item text-center large--two-thirds medium--two-thirds push--large--one-sixth push--medium--one-sixth\">\n<h2><b>What is a prepaid SIM card?<\/b><\/h2>\n<p>Prepaid SIM cards are an excellent option for staying connected with family and loved ones while traveling. They offer the convenience of not worrying about expensive roaming charges, and you can often find deals that include data and minutes for phone calls at a fraction of the cost of using your regular cell phone plan!<\/p>\n<div class=\"readmore-text\">\n<p>Instead of relying solely on an uninterrupted Wifi connection to access your device’s internet, you can count on your prepaid SIM to have your data covered throughout all your travels.<\/p>\n<h3>The benefits of an International Travel SIM card<\/h3>\n<p>While communication apps like Whatsapp or Viber are handy to keep in touch with loved ones back home when you have a Wifi connection, they’re not a consistently reliable communication source when traveling about on your daily adventures. After all, WiFi isn’t always readily available, particularly when you’re sightseeing or visiting remote locations.<\/p>\n<p>To ensure your safety in a foreign country, a prepaid Travel SIM is your best bet to stay connected with people back home. You can also confirm reservations with your accommodation and have constant access to all your contacts in the case of any emergency.<\/p>\n<p>If you’re traveling overseas, a travel SIM card for your relevant destination will be a far cheaper option than accessing your phone’s global roaming. You’ll have a certain amount of features included, so no hidden fees or roaming charges.<\/p>\n<p>Investing in a travel SIM card allows you to post your exciting travel photos on social media and send regular updates to family and friends without thinking twice! To avoid the high cost of using your domestic phone plan internationally, reap the benefits that an international travel SIM card has to offer.<\/p>\n<h3>What’s involved in getting a prepaid Travel SIM for your travel destination?<\/h3>\n<p>To buy a travel SIM card in the Australia for your travel destination, you simply need to go to SimCorner and choose a SIM option from a range of sim cards with reasonable data allowances for a price that suits your budget. Shopping for a SIM is now easier than ever. Opting for a SIM from SimCorner is guaranteed to make shopping for your travel SIM card a far smoother experience.<\/p>\n<p>To avoid the hassle of sourcing a SIM once you arrive at your overseas destination, we highly recommend exploring SimCorner’s one-stop shop for prepaid SIM cards in the Australia that cover countries across the globe to suit your travel needs.<\/p>\n<h3>Travel SIM cards for every destination<\/h3>\n<p>Discover our range of travel SIM card options for countries all across the globe. Whether you’re traveling to the beautiful beaches of Europe or Brazil or looking to explore the busy streets of London, buying our prepaid SIM cards has never been easier.<\/p>\n<h3>SimCorner — your one-stop shop for travel accessories<\/h3>\n<p>Traveling and wandering the world is quite an adventure — for most of us, it doesn’t come soon enough. At SimCorner, we prioritize our customers above all else. After all, sharing memories and staying in touch with those who matter shouldn’t come at a cost. That’s why our prepaid international travel SIM cards ensure that your globetrotting adventures don’t come with hefty roaming fees. You can easily stay connected, book activities, and accommodation to watch a TV show during long travel commutes by train or plane.<\/p>\n<p>To kickstart your adventures, explore our <a href=\"https:\/\/simcorner.com\/pages\/blog\">travel blog<\/a> for some helpful tips on sights to see and travel hacks to save you some money! Stay prepared for your trip with our selection of <a href=\"https:\/\/simcorner.com\/pages\/accessories\">accessories<\/a> and avoid the horrible realization that you have an incompatible charging adapter. From portable power banks to adapters and journals to document your travels, we’ve got you covered. If you have any queries, don’t hesitate to <a href=\"https:\/\/simcorner.com\/pages\/contact-us\">reach out<\/a> to our expert team, who will be more than happy to help.<\/p>\n<h3>FAQs<\/h3>\n<p><strong>Why do you need a travel SIM card?<\/strong><\/p>\n<p>A travel SIM card is a great option for staying connected while traveling. They offer the convenience of not having to worry about roaming charges, and you can often find deals that include data and minutes for phone calls at a fraction of the cost of using your regular cell phone plan.<\/p>\n<p>By opting for a prepaid SIM card in Australia from SimCorner, you’ll have no last-minute surprises and can guarantee an easy setup with its simple functionality. You can count on your prepaid SIM to have you covered with data throughout all your travels. That way, you can post all your travel photos on the go, keep in touch with loved ones back home and rest assured that you have access to your phone.<\/p>\n<p><strong>Which international travel SIM card is best?<\/strong><\/p>\n<p>While there are various international travel SIM cards on the market, none offer the generous inclusions of feature like the travel SIM card you can find at SimCorner. With no extra costs, roaming, or hidden fees, we’ve partnered with the world’s largest telecommunication services worldwide to ensure our travelers can enjoy the best possible deal wherever their adventures take them. If you’re unsure of which SIM to choose, don’t hesitate to reach out to our expert team, who will be happy to advise you on the right plan.<\/p>\n<p><strong>What makes SimCorner prepaid SIM cards easy to use?<\/strong><\/p>\n<p>If it’s a prepaid SIM card you’re after for your overseas travels, SimCorner could not be any easier — it is almost effortless to set up. Follow the steps below to install your SIM card and enjoy the ability to book activities and accommodation, and browse social media anywhere in the world:<\/p>\n<ol>\n<li>\n<strong>Order your SIM<\/strong> — Order your travel SIM card online and select the delivery method that best suits your travel date. SimCorner delivers to many countries worldwide, dispatching our competitive prepaid SIM cards from Australia, Canada, New Zealand, and the United Kingdom.<\/li>\n<li>\n<strong>Unlock your device<\/strong> — Once your international travel SIM card has arrived, ensure your device is unlocked before you board your flight. Being on a post-paid plan or contract with your local carrier doesn't mean your phone is locked. If you’re unsure, we recommend you check with your current service provider. So long as your device is unlocked, it will be compatible with our prepaid SIM cards unless stated otherwise.<\/li>\n<li>\n<strong>Connect your SIM<\/strong> — Insert your SIM card into your phone as soon as you land and stay connected immediately!<\/li>\n<\/ol>\n<p><strong>How do I inquire about a prepaid SIM?<\/strong><\/p>\n<p>If you have any queries on which prepaid travel SIM card is the right fit for you, contact our team of experts, who will be more than happy to answer any questions you may have. Once you’ve selected your prepaid SIM, SimCorner takes it one step further with our handy travel blog that provides exciting travel tips on sights to see and travel hacks to save you some money! So what are you waiting for? Buying a prepaid SIM card could not be easier than SimCorner.<\/p>\n<\/div>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "html_mqGkLm"
+        ],
+        "settings": {
+          "background_color": "#ffffff"
+        }
+      }
+    },
+    "content_for_index": [
+      "16534739608e1db041",
+      "2c087037-e3ed-4032-9589-ee3e2f8c6f63",
+      "featured-content",
+      "0ab46d22-7aea-451d-8d52-cee3fb1fed4a",
+      "1585306479430",
+      "1576150436151",
+      "1579897187194",
+      "featured-products",
+      "1576150750165",
+      "1580442381343",
+      "16461925533e1b6f63",
+      "16461926117acfb65d",
+      "1646192648a408ea32",
+      "advanced_content_K8QjyT",
+      "featured_content_chHF3r",
+      "16461926904ba6300e",
+      "1579722112294",
+      "newsletter",
+      "cb8de694-2739-4596-87b7-866440840111",
+      "b0682358-af3b-4b22-ab7c-6dc216e0b52d",
+      "c47d2e4b-06db-49d7-9675-cb6a3b97ada0"
+    ],
+    "blocks": {
+      "18331215849590791805": {
+        "type": "shopify:\/\/apps\/seo-json-ld-schema\/blocks\/carousel\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "3650027678699231211": {
+        "type": "shopify:\/\/apps\/seo-json-ld-schema\/blocks\/article\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+          "author": "SimCorner",
+          "authorUrl": "SimCorner.com",
+          "publisher": "",
+          "publisherLogoURL": ""
+        }
+      },
+      "13647546867862338453": {
+        "type": "shopify:\/\/apps\/seo-json-ld-schema\/blocks\/product\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+          "isShopifyName": "shopify",
+          "reviewsFrom": "none",
+          "moneyFormat": "amount",
+          "globalIdentifier": "none",
+          "pattern": ""
+        }
+      },
+      "9467949409069952136": {
+        "type": "shopify:\/\/apps\/seo-json-ld-schema\/blocks\/productFAQ\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "319724205969189013": {
+        "type": "shopify:\/\/apps\/hulk-form-builder\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "6472724134860490182": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/breadcrumb\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "5932146772819302445": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/brokenLinks\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "44692493664754031": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/howTo\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "15640154714208799765": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/localBusiness\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+          "businessType": "AccountingService",
+          "businessName": "",
+          "servesCuisine": "",
+          "streetAddress": "",
+          "addressLocality": "",
+          "region": "",
+          "postalCode": "",
+          "telephone": "",
+          "priceRangeFrom": "",
+          "priceRangeto": "",
+          "DaysOfWeek": "",
+          "opens": "",
+          "closes": ""
+        }
+      },
+      "6039927293107162517": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/logo\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+          "businessName": "",
+          "url": "",
+          "description": "",
+          "twitterUrl": "",
+          "facebookUrl": "",
+          "instagramUrl": "",
+          "pinterestUrl": "",
+          "linkedinUrl": "",
+          "telephone": "",
+          "streetAddress": "",
+          "city": "",
+          "state": "",
+          "country": "",
+          "zipCode": "",
+          "isReviewAvailable": "no",
+          "reviewCount": "",
+          "ratingValue": "",
+          "bestRating": "",
+          "worstRating": ""
+        }
+      },
+      "9389739334699838615": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/search\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+          "searchVariable": "search?q={search_term}"
+        }
+      },
+      "16565178295617612884": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/recipe\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": true,
+        "settings": {
+        }
+      },
+      "14724428607702905366": {
+        "type": "shopify:\/\/apps\/webrex-seo\/blocks\/webrexSeoEmbed\/b26797ad-bb4d-48f5-8ef3-7c561521049c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "7570552984445421165": {
+        "type": "shopify:\/\/apps\/yotpo-product-photo-reviews\/blocks\/settings\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "3066834073402364550": {
+        "type": "shopify:\/\/apps\/sellup-upsell-add-ons\/blocks\/global_sellup\/001ec440-29ea-4cbf-9265-4963fa825261",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+    "Classic": {
+      "cart_type": "drawer",
+      "cart_notes_enable": false,
+      "checkout_accent_color": "#a26b25",
+      "checkout_banner_background_color": "#fff",
+      "checkout_button_color": "#000000",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#222323",
+      "color_borders": "#1c1d1d",
+      "color_button_text": "#ffffff",
+      "color_drawer_background": "#1c1d1d",
+      "color_drawer_border": "#343535",
+      "color_drawer_button": "#a26b25",
+      "color_drawer_button_text": "#ffffff",
+      "color_drawer_text": "#ffffff",
+      "color_headings": "#222323",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#f6f6f6",
+      "color_primary": "#1c1d1d",
+      "color_product_background": "#f7f7f7",
+      "color_sale_tag": "#990000",
+      "color_secondary": "#a26b25",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "share_facebook": true,
+      "share_pinterest": true,
+      "share_twitter": true,
+      "social_sharing_style": "clean",
+      "type_accent_family": "",
+      "type_accent_spacing": true,
+      "type_accent_transform": true,
+      "type_accent_subheadings": true,
+      "type_base_family": "arapey_n4",
+      "type_base_italize_titles": true,
+      "type_base_size": "16px",
+      "type_header_base_size": "30px",
+      "type_header_border_thickness": "1px",
+      "type_header_family": "old_standard_tt_n4",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_announcement": true,
+            "color_bg": "#1c1d1d",
+            "color_text": "#ffffff"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "slide",
+              "settings": {
+              }
+            },
+            "slideshow-1": {
+              "type": "slide",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage"
+          }
+        },
+        "featured-content": {
+          "type": "featured-content",
+          "settings": {
+          }
+        },
+        "featured-collections": {
+          "type": "featured-collections",
+          "blocks": {
+            "featured-collections-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "featured-collections-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "featured-collections-2": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "featured-collections-0",
+            "featured-collections-1",
+            "featured-collections-2"
+          ],
+          "settings": {
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+          }
+        }
+      },
+      "content_for_index": [
+        "featured-content",
+        "featured-collections",
+        "featured-products",
+        "newsletter"
+      ]
+    },
+    "Playful": {
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#565656",
+      "color_borders": "#5dd2b4",
+      "color_button_text": "#ffffff",
+      "color_primary": "#7737BD",
+      "color_secondary": "#058677",
+      "color_product_background": "#fff4f6",
+      "color_sale_tag": "#e80970",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#bde9f2",
+      "color_drawer_background": "#360f5f",
+      "color_drawer_text": "#ffffff",
+      "color_drawer_border": "#50297a",
+      "color_drawer_button": "#7737BD",
+      "color_drawer_button_text": "#ffffff",
+      "color_headings": "#321863",
+      "type_header_family": "quicksand_n7",
+      "type_header_base_size": "38px",
+      "type_header_border_thickness": "1px",
+      "type_accent_family": "roboto_n7",
+      "type_accent_transform": true,
+      "type_accent_spacing": true,
+      "type_accent_subheadings": false,
+      "type_base_family": "helvetica_n4",
+      "type_base_size": "17px",
+      "type_base_italize_titles": false,
+      "cart_type": "drawer",
+      "cart_notes_enable": true,
+      "social_facebook_link": "",
+      "social_twitter_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_google_plus_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_fancy_link": "",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fff4f6",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Roboto",
+      "checkout_accent_color": "#7737BD",
+      "checkout_button_color": "#7737BD",
+      "checkout_error_color": "#f01130",
+      "checkout_banner_background_color": "#fff",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "social_sharing_style": "clean",
+      "sections": {
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1495823280244": {
+              "type": "slide",
+              "settings": {
+                "slide_text_color": "#ffffff",
+                "slide_button_label_color": "#003B34",
+                "slide_button_background_color": "#84D1B2"
+              }
+            }
+          },
+          "block_order": [
+            "1495823280244"
+          ],
+          "settings": {
+            "hero_home_auto": false,
+            "home_hero_auto_speed": 5
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage",
+            "collection_products_grid": "collage"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_max_width": "260",
+            "search": "modal",
+            "main_menu_link_list": "main-menu",
+            "show_announcement": false,
+            "color_bg": "#290c49",
+            "color_text": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_link_list": "footer"
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "collection_tags_enable": false,
+            "collection_products_grid": "grid",
+            "product_vendor_enable": false
+          }
+        },
+        "1494860348200": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "right"
+          }
+        },
+        "1494894035034": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "left"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "zoom_enable": false,
+            "social_sharing_products": true,
+            "product_vendor_enable": false
+          }
+        },
+        "1496078102297": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496078102297-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"text-align:center;\">\n<h1 class=\"h1\">Use HTML to format your text so it can be easily read.<\/h1>This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496078102297-0"
+          ],
+          "settings": {
+          }
+        },
+        "1496177901425": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496177901425-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"width:745px;text-align: center; margin: 0 auto;\">This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496177901425-0"
+          ],
+          "settings": {
+          }
+        }
+      },
+      "content_for_index": [
+        "1496177901425",
+        "featured-products",
+        "newsletter",
+        "1496078102297",
+        "1494860348200",
+        "1494894035034"
+      ]
+    }
+  }
+}

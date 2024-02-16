@@ -1,0 +1,429 @@
+<!-- /templates/article.liquid -->
+<!-- Rich snippet blogposting -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var schemaElement = document.querySelector('script.ws_schema');
+
+    if (schemaElement) {
+      var schemaData = JSON.parse(schemaElement.textContent);
+      schemaData.author.name = "Simcorner Support";
+      var modifiedSchema = JSON.stringify(schemaData);
+      schemaElement.textContent = modifiedSchema;
+    }
+  });
+</script>
+
+{% assign number_of_comments = article.comments_count %}
+
+{% if comment and comment.created_at %}
+{% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<div class="grid travel-single">
+  <div class="single_blog_outer" style="background-image: url('{{ 'travel-post-bg.webp' | asset_url }}'); height: 400px;">
+    <div class="travel-single-hero-inner">
+      <div class="blog-hero">
+        <div class="block-archive-inner">
+          {% if request.path contains '/blogs/travel-guides/' %}
+            <span class="travel-tag-span"><a href="/blogs/travel-guides/">TRAVEL GUIDES</a></span>
+          {% elsif request.path contains '/blogs/news' %}
+            <span class="travel-tag-span"><a href="/blogs/news/">TRAVEL TIPS & HACKS</a></span>
+          {% endif %}
+          
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              var tagOptions = document.querySelectorAll(".travel-span");
+              tagOptions.forEach(function (element) {
+                element.textContent = element.textContent.replace("blog-", "");
+              });
+            });
+          </script>
+          <h1>{{ article.title }}</h1>
+          <p class="article-excerpt">{{ article.excerpt }}</p>
+          <div class="blog--tags">{% for tag in article.tags %}
+            <span class="travel-span">{{ tag }}</span>
+          {% endfor %}</div>
+        </div>
+        <div class="block-archive-inner-image">
+          <img class="blog-hero-image- lazyload hs-lazyload hs-id-859f1700" data-src="{{article.image | img_url: '' }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="travel-single-post">
+    <article class="travel-single-container">
+      <div class="travel-single-inner">
+        <div class="travel-single-blog">
+
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              // Get all the h3 elements inside travel-single-blog
+              const h3Elements = document.querySelectorAll('#travel-single-blog h3');
+
+              if (h3Elements.length === 0) {
+                console.error("No h3 elements found inside #travel-single-blog");
+                return;
+              }
+
+              // Create a div for the table of contents
+              const tableOfContents = document.createElement('div');
+              tableOfContents.className = 'table-of-contents';
+
+              // Create a container div for the table of contents and buttons
+              const tocContainer = document.createElement('div');
+              tocContainer.classList.add('toc-container');
+
+              // Create a heading for the table of contents
+              const tableOfContentsHeading = document.createElement('h4');
+              tableOfContentsHeading.textContent = 'Table of Contents';
+              tocContainer.appendChild(tableOfContentsHeading);
+
+              // Create a "View More" button to show the remaining items
+              const viewMoreButton = document.createElement('button');
+              viewMoreButton.textContent = '[ Show ]';
+              tocContainer.appendChild(viewMoreButton);
+
+              // Create a "View Less" button to hide the additional items
+              const viewLessButton = document.createElement('button');
+              viewLessButton.textContent = '[ Hide ]';
+              viewLessButton.style.display = 'none'; // Initially hide the "View Less" button
+              tocContainer.appendChild(viewLessButton);
+
+              // Add the container to the document
+              tableOfContents.appendChild(tocContainer);
+
+              // Create an ordered list for the contents
+              const ol = document.createElement('ul');
+
+              // Loop through each h3 element and create list items
+              h3Elements.forEach((h3, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#section-${index}`;
+                a.textContent = h3.textContent;
+                li.appendChild(a);
+                ol.appendChild(li);
+
+                // Add an ID to the h3 element for linking
+                h3.id = `section-${index}`;
+              });
+
+              // Append the ordered list to the table of contents
+              tableOfContents.appendChild(ol);
+
+              // Insert the table of contents just after the <h2> element
+              const blogHeaderTwo = document.getElementById('travel-single-blog');
+
+              if (!blogHeaderTwo) {
+                console.error("Element with ID 'blog-header-two' not found");
+                return;
+              }
+
+              blogHeaderTwo.insertAdjacentElement('beforebegin', tableOfContents);
+
+              // Initially hide all list items except the first 3
+              const listItems = ol.querySelectorAll('li');
+              for (let i = 0; i < listItems.length; i++) {
+                listItems[i].style.display = 'none';
+              }
+
+              // Add a click event to the "View More" button
+              viewMoreButton.addEventListener('click', function () {
+                // Show the remaining list items
+                for (let i = 0; i < listItems.length; i++) {
+                  listItems[i].style.display = 'list-item';
+                }
+                // Show the "View Less" button
+                viewLessButton.style.display = 'inline-block';
+                // Hide the "View More" button
+                viewMoreButton.style.display = 'none';
+              });
+
+              // Add a click event to the "View Less" button
+              viewLessButton.addEventListener('click', function () {
+                // Hide the additional list items
+                for (let i = 0; i < listItems.length; i++) {
+                  listItems[i].style.display = 'none';
+                }
+                // Show the "View More" button
+                viewMoreButton.style.display = 'inline-block';
+                // Hide the "View Less" button
+                viewLessButton.style.display = 'none';
+              });
+
+              // Add smooth scrolling behavior for anchor links with an offset
+              const anchorLinks = document.querySelectorAll('.table-of-contents a');
+              anchorLinks.forEach((link) => {
+                link.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const targetId = link.getAttribute('href').substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    // Check if it's a mobile device based on the screen width
+                    const isMobile = window.innerWidth < 768; // You can adjust the breakpoint as needed
+
+                    // Calculate the scroll position with the appropriate offset
+                    const offset = isMobile ? -150 : -300;
+                    window.scrollTo({
+                      top: targetElement.offsetTop + offset,
+                      behavior: 'smooth',
+                    });
+                  }
+                });
+              });
+            });
+          </script>
+          <div class="article-content">
+            <div id="travel-single-blog">
+
+              <div class="travel-banner-review">
+                <div class="travel-banner-inner">
+                  <div class="travel-banner-single">
+                    <h4>1M<span class="travel-plus">+</span></h4>
+                    <p>Trusted Worldwide</p>
+                    <span>Over 1 million travelers across the globe have trusted Simcorner</span>
+                  </div>
+                  <div class="travel-banner-single">
+                    <img src="{{ 'infinity.png' | asset_url }}" alt="infinity-simcorner-logo">
+                    <p>Unlimited data</p>
+                    <span>Get unlimited data plans at multiple destinations.</span>
+                  </div>
+                  <div class="travel-banner-single">
+                    <h4>4.8<span>/5</span> <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00" />
+                      </svg></h4>
+                    <p>Highly Rated Reviews</p>
+                    <span>Based on over 12,000 Customer Reviews</span>
+                  </div>
+                </div>
+                <div class="travel-banner-single-bottom">
+                  <div class="travel-single-text">
+                    <img src="{{ 'travel-post-icon.webp' | asset_url }}" alt="Travel smart with prepaid International SIM cards from SimCorner.">
+                    <span>Travel smart with prepaid International SIM cards from SimCorner.</span>
+                  </div>
+                  <div class="travel-single-button">
+                    <a href="/pages/shop-esim">Buy eSIM Now</a>
+                  </div>
+                </div>
+              </div>
+
+              {{ article.content }}
+              {% if blog.previous_article or blog.next_article %}
+              <div class="related-post">
+                <div class="related" id="prev-post">
+                  &larr; {{ blog.previous_article.title | link_to: blog.previous_article }}
+                </div>
+                <div class="related" id="next-post">
+                  {{ blog.next_article.title | link_to: blog.next_article }} &rarr;
+                </div>
+              </div>
+
+              <script>
+                // Check if the screen width is below 768px
+                if (window.innerWidth < 1024) {
+                  // Replace the text with "Previous Post" and "Next Post"
+                  document.getElementById('prev-post').innerHTML = '&larr; Previous Post';
+                  document.getElementById('next-post').innerHTML = 'Next Post &rarr;';
+                }
+              </script>
+              {% endif %}
+            </div>
+            <div class="sharethis-inline-share-buttons"></div>
+
+
+            <!-- Related Products -->
+            {%- assign tag = article.image.alt -%}
+            {%- assign collection = collections['all'] -%}
+            {% assign tagsString = article.tags.first | join: ',' | replace: "blog-", "" | strip | capitalize %}
+
+
+            {% if collection.products.size > 0 %}
+            <div class="blog-related-products related-travel-products">
+              <div class="featured-collection layout-8 lazyload" data-section-id="{{ section.id }}" data-section-type="featured-collection-section">
+                <div class="travel-product-list-main">
+                  <h2>Related Sim Cards</h2>
+                  <div class="travel-product-list">
+                    {% assign displayed_products = 0 %}
+
+                    {% paginate collection.products by 1000 %}
+                    {% for product in collection.products %}
+                    {% if product.title contains tagsString %}
+                    {% include 'product-grid-item' %}
+                    {% assign displayed_products = displayed_products | plus: 1 %}
+
+                    {% if displayed_products == 6 %}
+                    {% break %}
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endpaginate %}
+
+                    {% if displayed_products == 0 %}
+                    <style>
+                      .blog-related-products {
+                        display: none;
+                      }
+                    </style>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            <!-- End Related Products -->
+
+            <div class="related-guide-container">
+              <div class="back-to-guides">
+              <h2>Related Travel Posts</h2>
+              <a href="/blogs/travel-guides/">View More <img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/arrow_view.svg?v=1585130491"></a>
+              </div>
+              <div class="related-guide-inner">
+                {% for article in blogs.travel-guides.articles limit: 3 %}
+                <div class="blog_main_travel">
+                  {% if article.image %}
+                  {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+                  {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+
+                  <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
+                    <div class="article__grid-image-container">
+                      <a href="{{ article.url }}">
+                        <img alt="" class="article__grid-image lazyload hs-lazyload hs-id-0aacc45a" data-aspectratio="{{ article.image.aspect_ratio }}" data-sizes="auto" data-src="{{ article.image | img_url: '600x600' }}" data-widths="[180, 360]" id="{{ img_id }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-travel-content">
+                    <h4><a href="{{ article.url }}">{{ article.title | strip_html | truncate: 70}}</a></h4>
+                  </div>
+                  <div class="excerpt-text"><a href="{{ article.url }}">
+                      <p>{{ article.content | strip_html | truncate: 115}}</p>
+                    </a>
+                    <a href="{{ article.url }}" class="travel-read-more">Read more</a>
+                  </div>
+                  <noscript>
+                    <div class="article__grid-image-wrapper">
+                      {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                    </div>
+                  </noscript>
+                  {% endif %}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="need-help-guide">
+              <h2>Need Help?</h2>
+              <p>If you have any questions about our service, feel free to reach out. You can email us <a href="mailto:support@simcorner.com">support@simcorner.com</a> or contact us <a href="/pages/contact-us">here</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </article>
+</div>
+
+
+
+{% schema %}
+{
+"name": {
+"da": "Artikelsider",
+"de": "Artikelseiten",
+"en": "Article pages",
+"es": "Páginas del artículo",
+"fi": "Artikkelisivut",
+"fr": "Pages d'articles",
+"hi": "लेख पेज",
+"it": "Pagine articoli",
+"ja": "記事ページ",
+"ko": "문서 페이지",
+"ms": "Halaman artikel",
+"nb": "Artikkelsider",
+"nl": "Artikelpagina's",
+"pt-BR": "Páginas do artigo",
+"pt-PT": "Páginas de artigo",
+"sv": "Artikelsidor",
+"th": "หน้าบทความ",
+"zh-CN": "文章页面",
+"zh-TW": "文章頁面"
+},
+"settings": [
+{
+"type": "checkbox",
+"id": "social_sharing_blog",
+"label": {
+"da": "Vis knapper til deling på sociale medier",
+"de": "Social-Sharing-Schaltflächen anzeigen",
+"en": "Show social sharing buttons",
+"es": "Mostrar botones para compartir en redes sociales",
+"fi": "Näytä sosiaalisen median jakamispainikkeet",
+"fr": "Afficher les boutons de partage social",
+"hi": "सोशल शेयरिंग बटन दिखाएं",
+"it": "Mostra i pulsanti per la condivisione sui social",
+"ja": "ソーシャル共有ボタンを表示する",
+"ko": "소셜 공유 버튼 표시",
+"ms": "Tunjukkan butang perkongsian sosial",
+"nb": "Vis knapper for deling på sosiale medier",
+"nl": "Knoppen voor sociaal delen weergeven",
+"pt-BR": "Exibir botões de compartilhamento em redes sociais",
+"pt-PT": "Mostrar botões de partilha nas redes sociais",
+"sv": "Visa knappar för delning i sociala medier",
+"th": "แสดงปุ่มสำหรับแชร์ลงโซเชียล",
+"zh-CN": "显示社交分享按钮",
+"zh-TW": "顯示社群分享按鈕"
+},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_share_buttons",
+"label": {
+"da": "Vis knapper til deling på sociale medier",
+"de": "Social-Sharing-Schaltflächen anzeigen",
+"en": "Show social sharing buttons",
+"es": "Mostrar botones para compartir en redes sociales",
+"fi": "Näytä sosiaalisen median jakamispainikkeet",
+"fr": "Afficher les boutons de partage social",
+"hi": "सोशल शेयरिंग बटन दिखाएं",
+"it": "Mostra i pulsanti per la condivisione sui social",
+"ja": "ソーシャル共有ボタンを表示する",
+"ko": "소셜 공유 버튼 표시",
+"ms": "Tunjukkan butang perkongsian sosial",
+"nb": "Vis knapper for deling på sosiale medier",
+"nl": "Knoppen voor sociaal delen weergeven",
+"pt-BR": "Exibir botões de compartilhamento em redes sociais",
+"pt-PT": "Mostrar botões de partilha nas redes sociais",
+"sv": "Visa knappar för delning i sociala medier",
+"th": "แสดงปุ่มสำหรับแชร์ลงโซเชียล",
+"zh-CN": "显示社交分享按钮",
+"zh-TW": "顯示社群分享按鈕"
+},
+"default": true,
+"info": {
+"da": "Rediger SoMe-konti i Generelle indstillinger",
+"de": "Bearbeiten Sie Social-Media-Konten in den allgemeinen Einstellungen",
+"en": "Edit social accounts in General settings",
+"es": "Editar cuentas de las redes sociales en la configuración general",
+"fi": "Muokkaa sosiaalisen median tilejä kohdassa Yleiset asetukset",
+"fr": "Modifier les comptes sociaux dans les paramètres généraux",
+"hi": "सामान्य सेटिंग में सोशल अकाउंट संपादित करें",
+"it": "Modifica gli account social nelle Impostazioni generali",
+"ja": "一般設定でソーシャルアカウントを編集する",
+"ko": "일반 설정에서 소셜 계정 수정",
+"ms": "Edit akaun sosial dalam tetapan Umum",
+"nb": "Rediger sosiale kontoer i Generelle innstillinger",
+"nl": "Social media-accounts in Algemene instellingen bewerken",
+"pt-BR": "Edite as contas de redes sociais nas configurações gerais",
+"pt-PT": "Editar as contas de redes sociais nas definições gerais",
+"sv": "Redigera sociala konton i Allmänna inställningar",
+"th": "แก้ไขบัญชีผู้ใช้โซเชียลมีเดียในการตั้งค่าทั่วไป",
+"zh-CN": "在“通用”设置中编辑社媒帐户",
+"zh-TW": "前往「一般」設定編輯社群帳戶"
+}
+}
+]
+}
+{% endschema %}

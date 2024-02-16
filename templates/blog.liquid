@@ -1,0 +1,284 @@
+<!-- /templates/allblog.liquid -->
+<style>
+  .article__grid-image-wrapper::after {
+    padding-bottom: {
+        {
+        article.image.aspect_ratio | times: 100
+      }
+    }
+
+    %;
+  }
+</style>
+
+<div class="grid all-blog travel--guide">
+  <div class="travel-guide-hero">
+    <div class="single_blog_outer" style="background-image: url('{{ 'travel-bg.webp' | asset_url }}');"></div>
+    <div class="blog-hero">
+      <div class="block-archive-inner">
+        <span>NEWS</span>
+        <div class="travel-inner">
+          <h1>Travel Tips and Travel Hacks</h1>
+          <p>Unlock seamless adventures with SimCorner's Travel Tips and Hacks, ensuring every journey is a smooth and unforgettable experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="travel-guide-container">
+    <div class="travel-guide-inner">
+      <div class="travel-guide-content">
+        <div class="travel-guide-posts">
+          <div class="travel-search">
+            <h2>Latest Articles</h2>
+
+            {% include 'blog-search' %}
+          </div>
+
+          <div class="filter-by-tag filter--travel">
+            {% comment %} <label for="tag-filter">{{ request.path | split: "/" | last | remove: "blog-" }}</label> {% endcomment %}
+            <div>
+            <ul class="tags">
+              <li id="current-selected-tag">
+                {% if request.path contains '/blogs/news/tagged/' %}
+                  {% assign current__tag = request.path | split: "/" | last | remove: "blog-" %}
+                  {{ current__tag | remove: "blog-" | remove: "accessories-" | remove: "europe-" | remove: "asia-" | replace: "-", " " | capitalize | strip }}
+                {% else %}
+                  All
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <label>Filter</label>
+            <select id="tag-filter-option" name="tag-filter">
+              <option active value="all">All</option>
+              {% for tag in blog.all_tags %}
+                {% assign cleaned_tag = tag | remove: "blog-" | remove: "accessories-" | remove: "europe-" | remove: "asia-" | replace: "-", " " | capitalize | strip %}
+                <option value="{{ tag | handleize }}">{{ cleaned_tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+            <script>
+              $(document).ready(function () {
+                $('#tag-filter-option').change(function () {
+                  var selectedTag = $(this).val();
+                  updateBlogArticles(selectedTag);
+                });
+            
+                function updateBlogArticles(selectedTag) {
+                  var baseUrl = '/blogs/news';
+                  var tagPath = (selectedTag === 'all') ? '' : '/tagged/' + selectedTag;
+                  var fullUrl = baseUrl + tagPath;
+                  var removedselectedTag = selectedTag.replace("blog-", "").replace("-", " ");
+
+            
+                  // Update the label with the selected tag
+                  $('#current-selected-tag').text(removedselectedTag);
+            
+                  // Redirect to the new URL
+                  window.location.href = fullUrl;
+                }
+              });
+
+              // Set the selectedTag value based on the URL when the page loads
+              var urlSegments = window.location.pathname.split('/');
+              var selectedTagFromUrl = urlSegments[urlSegments.length - 1]; // Get the last segment of the URL
+              document.getElementById('tag-filter-option').value = selectedTagFromUrl;
+              </script>
+            
+            
+          </div>
+
+          <div class="main_travel_container" id="blog-articles-container">
+            {%- assign selectedTag = request.params.tag | default: 'all' -%}
+            {%- paginate blog.articles by 12 -%}
+            {% for article in blog.articles %}
+            {% if selectedTag == 'all' or article.tags contains selectedTag %}
+            <div class="blog_main_travel">
+
+              {% if article.image %}
+              {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+              {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+              {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+
+              <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
+                <div class="article__grid-image-container">
+                  <a href="{{ article.url }}">
+                    <img alt="" class="article__grid-image lazyload hs-lazyload hs-id-0aacc45a" data-aspectratio="{{ article.image.aspect_ratio }}" data-sizes="auto" data-src="{{ article.image | img_url: '600x600' }}" data-widths="[180, 360]" id="{{ img_id }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                  </a>
+                </div>
+              </div>
+              <div class="blog-travel-content">
+                <h3><a href="{{ article.url }}">{{ article.title | strip_html | truncate: 70}}</a></h3>
+              </div>
+              <div class="excerpt-text"><a href="{{ article.url }}">
+                  <p>{{ article.content | strip_html | truncate: 150}}</p>
+                </a>
+                <a href="{{ article.url }}" class="travel-read-more">Read more</a>
+              </div>
+              <noscript>
+                <div class="article__grid-image-wrapper">
+                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                </div>
+              </noscript>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="pagination_outer">{{ paginate | default_pagination: next: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>', previous: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>' }}</div>
+            {%- endpaginate -%}
+          </div>
+        </div>
+
+        <div class="travel-guide-related">
+          <div class="travel-related">
+            <h4>Popular Posts</h4>
+            {% assign related_posts = "" %}
+            {% assign all_articles = blogs.news.articles | sort: 'published_at' | reverse %}
+
+            {% assign shuffled_articles = all_articles | shuffle %}
+
+            {% assign count = 0 %}
+
+            {% for articlex in shuffled_articles %}
+            {% if count < 4 and articlex.title != article.title %}
+            {% capture post %}
+            <div class="related_dtl_main">
+              <div class="related_content">
+                <h3>
+                  <a href="{{ articlex.url }}">{{ articlex.title | strip_html | truncate: 60 }}</a>
+                </h3>
+              </div>
+            </div>
+            {% endcapture %}
+            {% assign related_posts = related_posts | append:post %}
+            {% assign count = count | plus: 1 %}
+            {% endif %}
+            {% endfor %}
+
+
+            {% if related_posts.size > 0 %}
+            {{ related_posts }}
+            {% else %}
+            <p>No related posts!</p>
+            {% endif %}
+            
+            <div class="travel-guides-cta">
+              <h4>Travel Guides</h4>
+              {% assign related_posts = "" %}
+              {% assign all_articles = blogs.travel-guides.articles | sort: 'published_at' | reverse %}
+  
+              {% assign shuffled_articles = all_articles | shuffle %}
+  
+              {% assign count = 0 %}
+  
+              {% for articlex in shuffled_articles %}
+              {% if count < 3 and articlex.title != article.title %}
+              {% capture post %}
+              <div class="related_dtl_main">
+                <div class="related_content">
+                  <h3>
+                    <a href="{{ articlex.url }}">{{ articlex.title | strip_html | truncate: 60 }}</a>
+                  </h3>
+                </div>
+              </div>
+              {% endcapture %}
+              {% assign related_posts = related_posts | append:post %}
+              {% assign count = count | plus: 1 %}
+              {% endif %}
+              {% endfor %}
+  
+  
+              {% if related_posts.size > 0 %}
+              {{ related_posts }}
+              {% else %}
+              <p>No related posts!</p>
+              {% endif %}
+
+              <a class="explore-travel-cta" href="/blogs/travel-guides">VIEW MORE POSTS</a>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <div class="travel-related-products">
+    <h2>Popular eSIM For Travel</h2>
+    {%- assign tag = article.image.alt -%}
+    {%- assign collection = collections['best-seller-esims'] -%}
+    {%- assign product_limit = 4 -%}
+
+    {% if collection.products.size > 0 %}
+    <div class="featured-collection layout-8 lazyload" data-section-id="{{ section.id }}" data-section-type="featured-collection-section">
+      <div class="carousel_main">
+        <div class="carousel" id="carousel_one">
+          {% assign sorted_products = collection.products | sort: 'best-selling' %}
+          {% assign displayed_products = 0 %}
+          {% paginate sorted_products by 1000 %}
+          {% for product in sorted_products %}
+          {% if displayed_products < product_limit %}
+          {% include 'product-grid-item' %}
+          {% assign displayed_products = displayed_products | plus: 1 %}
+          {% endif %}
+          {% endfor %}
+          {% if displayed_products < product_limit %}
+          {% for i in (1..product_limit | minus: displayed_products) %}
+          {% include 'placeholder-product-grid-item' %}
+          {% endfor %}
+          {% endif %}
+          {% endpaginate %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <!-- End Related Products -->
+
+
+
+
+
+  {%- capture main_entity_microdata -%}
+  "@type": "BlogPosting",
+  "mainEntityOfPage": "{{ article.url }}",
+  "articleSection": {{ blog.title | json }},
+  "keywords": "{{ article.tags | join: ', ' }}",
+  "headline": {{ article.title | json }},
+  "description": {{ article.excerpt_or_content | strip_html | truncatewords: 25 | json }},
+  "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%T' }}",
+  "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+  "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+  "image": {
+  "@type": "ImageObject",
+  "url": "https:{{ page_image | image_url: width: 1024 }}",
+  "image": "https:{{ page_image | image_url: width: 1024 }}",
+  "name": {{ page_image.alt | json }},
+  "width": "1024",
+  "height": "1024"
+  },
+  "author": {
+  "@type": "Person",
+  "name": "SimCorner"
+  },
+  "publisher": {
+  "@type": "Organization",
+  "name": {{ shop.name | json }}
+  },
+  "commentCount": {{ article.comments_count }},
+  "comment": [
+  {%- for comment in article.comments limit: 5 -%}
+  {
+  "@type": "Comment",
+  "author": {{ comment.author | json }},
+  "datePublished": "{{ comment.created_at | date: '%Y-%m-%dT%T' }}",
+  "text": {{ comment.content | json }}
+  }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+  ]
+  {%- endcapture -%}
