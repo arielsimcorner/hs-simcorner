@@ -1,0 +1,100 @@
+<!-- Custom Search Form -->
+<form action="/search" method="get" class="blog-search">
+    <input type="hidden" name="type" value="article" />
+    <div class="input-group--underline">
+      <svg class="blog-search__icon" aria-hidden="true" viewBox="0 0 24 24">
+        <g>
+          <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+        </g>
+      </svg>
+      <input class="input-group__field" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search for Country, Regions, Airport, SIM, eSIM, etc." aria-label="{{ 'general.search.placeholder' | t }}">
+    </div>
+</form>
+
+<!-- Include jQuery library (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the custom JavaScript code -->
+<script>
+$(function() {
+    var customSearchForms = $('form.blog-search').each(function() {
+        var input = $(this).find('input[name="q"]');
+        var resultsList = $('<ul class="blog-search-results"></ul>').appendTo($(this)).hide();
+
+        input.attr('autocomplete', 'off').on('input', function() {
+            var term = $(this).val();
+            var form = $(this).closest('form');
+            var searchURL = '/search?type=article&q=' + term;
+
+                        // Capture the Enter key press event and prevent its default behavior
+                        input.on('keydown', function(e) {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                return false;
+                            }
+                        });
+
+            $.getJSON(searchURL + '&view=json', function(data) {
+                resultsList.empty();
+
+                if (data.results_count === 0) {
+                    resultsList.html('<p>No results found.</p>');
+                } else {
+                    var maxResults = data.results_count > 10 ? 10 : data.results_count; // Limit to 10 results
+
+                    for (var i = 0; i < maxResults; i++) {
+                        var item = data.results[i];
+                        // Get the first path segment of the URL
+                        var firstPathSegment = item.url.split('/')[1];
+
+                        // Check if the first path segment is "/blogs/"
+                        if (firstPathSegment === 'blogs') {
+                            var link = $('<a></a>').attr('href', item.url);
+                            link.append('<span class="title">' + item.title + '</span>');
+
+                            // Show the image if available
+                            if (item.image) {
+                                link.append('<img src="' + item.image + '" alt="' + item.title + '">');
+                            }
+
+                            link.wrap('<li class="blog-results-item"></li>');
+                            resultsList.append(link.parent());
+                        }
+                    }
+
+                    if (data.results_count > 10) {
+                        resultsList.append('<li class="blog-results-all"><a href="' + searchURL + '">View More</a></li>');
+                    }
+                }
+
+                resultsList.fadeIn(200);
+
+                            // Close the search results when clicking outside
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.blog-search').length && !$(event.target).hasClass('close-button')) {
+                    resultsList.fadeOut(200);
+                    closeButton.hide();
+                }
+            });
+            });
+        });
+    });
+
+    // Close the search results when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.blog-search').length) {
+            $('.custom-search-results').fadeOut(200);
+        }
+    });
+});
+</script>
+
+<style>
+    ul.search-results {
+        display: none!important;
+    }
+
+    .close-button {
+        display: none;
+    }
+</style>

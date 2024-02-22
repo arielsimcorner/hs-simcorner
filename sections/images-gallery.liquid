@@ -1,0 +1,83 @@
+<div data-section-id="{{ section.id }}" data-section-type="featured-collections-section">
+  <div class="wrapper">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2 class="h1 section-header__title">{{ section.settings.title | escape }}</h2>
+        <hr class="hr--small">
+      </div>
+    {% endif %}
+
+    <div class="grid collection-grid">
+	  {% assign grid_item_width = "one-half medium--one-third large--one-third" %}
+      {% if section.blocks.size == 1 %}
+        {% assign grid_item_width = "one-whole" %}
+      {% elsif section.blocks.size == 2 %}
+        {% assign grid_item_width = "one-half medium--one-half large--one-half" %}
+      {% endif %}
+      
+      {% for block in section.blocks %}
+        <div class="grid__item {{ grid_item_width }} collection-collage__item text-center" {{ block.shopify_attributes }}>
+
+          {% if block.settings.link == blank %}
+            {% else %}
+         <a href="{{ block.settings.link }}" class="collection-grid__item-link collection-collage__item-wrapper">
+ {% endif %}
+          
+            {% if block.settings.image == blank %}
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              <div class="collection-grid__item-overlay grid__image">{{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {% else %}
+              <div class="collection-grid__item-overlay grid__image lazyload"
+                   style="background-image: url('{{ block.settings.image | img_url: '300x' }});"
+                   data-bgset="{% include 'bgset', image: block.settings.image %}"
+                   data-sizes="auto"
+                   data-parent-fit="cover">
+              </div>
+            {% endif %}
+          </a>
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Images Gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Images Gallery"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Images Gallery",
+      "category": "Images"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+		{
+          "id": "link",
+          "type": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
