@@ -1,0 +1,12 @@
+/** SEO Updates **/
+p.shop-for-drawer {
+    text-align: center;
+}
+
+header.site-header .custom_desktop_menu .sub_menu_arrow a span {
+    font-size: 18px;
+}
+
+.with_grandchild.mobile-nav__item ul .mobile-nav__link span.grandchild_container {
+    gap: 10px;
+}

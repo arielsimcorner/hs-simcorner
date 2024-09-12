@@ -26,58 +26,6 @@
     {%- endif -%}
   {%- endif -%}
 
-{% comment %}
-<script>
-    /*yotpo ratings*/
-var data = null;
-var xhr = new XMLHttpRequest();
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    //console.log(this.responseText);
-    var obj = JSON.parse(this.responseText);
-    var average_score = obj.response.bottomline.average_score;
-    var total_reviews = obj.response.bottomline.total_reviews;
-   // document.getElementById("averagescore").value = average_score;
-   // document.getElementById("averagescore").value = total_reviews;
-    
-   
-     var el = document.createElement('script');
-   el.type = 'application/ld+json';
-   el.text = JSON.stringify({
-     "@context": "http://schema.org",
-     "@type": "Product",
-       "brand": {
-           "name": "Simcorner"
-       },
-     "description": "{{ page_description | escape }}",
-     "sku": "{{ current_variant.sku }}",
-     "image": "{{ product | image_url }}",
-     "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": average_score,
-            "reviewCount": total_reviews
-        },
-        "name":"{{ product.title }}",
-        "offers": {
-            "@type": "Offer", 
-            "availability": "http://schema.org/InStock", 
-           "price": "{{ product.price | money_without_currency}}", 
-            "priceCurrency": "{{ cart.currency.iso_code }}",
-                            "url" : "{{ product.url }}",               
-        }
-   });
-
-   document.querySelector('head').appendChild(el);
-  }
-});
-  var yotpourl = "https://api.yotpo.com/products/L0U2NJBNcL7t6lFdg8PjYx1iH2X4ml9ubAYJ9os7/"+{{ product.id }} +"/bottomline";
-  xhr.open("GET", yotpourl);
-xhr.setRequestHeader("content-type", "application/json");
-xhr.send(data);
-  
-</script>
-{% endcomment %}
-
     <div class="grid product-single"> 
       <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center">
 
@@ -163,6 +111,7 @@ xhr.send(data);
                         </noscript>
                       </div>
                     </div>
+
                   </div>
                 </div>
               {% endunless %}
@@ -171,17 +120,96 @@ xhr.send(data);
           </div>
 
         {% else %}
+         
           {% comment %}
             Thumbnails layout
           {% endcomment %}
 
-          <div class="product-thumbnail__photos product-single__photos navslider_main">
-
-            {% comment %}
-              We need to figure out the max width we want the image to be on the page
-              based on the aspect ratio of the image and based on the size of the
-              image.
-            {% endcomment %}
+          
+            {% if product.media.size > 1 %}
+              <div class="{% if template contains 'unlimited' %}sim-unlimited{% endif %}">
+                <div id="ProductThumbs" class="product-media">
+                    <div class="slick-slider" id="main-slider">
+                        {%- for media_item in product.media -%}
+                            {% if media_item.media_type == 'image' %}
+                                <div class="product-media-item">
+                                    <img src="{{ media_item.src | img_url: '1024x1024' }}" alt="{{ media_item.alt }}" style="width: 100%" />
+                                </div>
+                            {% elsif media_item.media_type == 'video' or media_item.media_type == 'external_video' %}
+                                <div class="product-media-item">
+                                    <div class="product-video-item">
+                                        {{ media_item | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: "1024x1024" }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {%- endfor -%}
+                    </div>
+                    <div class="slick-thumbnails" id="thumbnail-slider">
+                        {%- for media_item in product.media -%}
+            
+                            {% if media_item.media_type == 'image' %}
+                                <div class="product-thumb-item">
+                                    <img src="{{ media_item.src | img_url: '200x200' }}" alt="{{ media_item.alt }}" data-index="{{ forloop.index0 }}" />
+                                </div>
+                            {% elsif media_item.media_type == 'video' or media_item.media_type == 'external_video' %}
+                                <div class="product-thumb-item">
+                                    <div class="product-video-item">
+                                        {{ media_item | video_tag: loop: true, muted: true, controls: false, image_size: "200x200" }}
+                                        <div class="video-play-icon">
+                                            <svg class="icon" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 41H41V1H1V41Z" />
+                                                <path class="icon-video-badge-full-color-outline" d="M0.5 41V41.5H1H41H41.5V41V1V0.5H41H1H0.5V1V41Z" />
+                                                <path class="icon-video-badge-full-color-element" d="M16.5075 12.888C15.8409 12.4953 15 12.976 15 13.7496V28.1404C15 28.9373 15.8866 29.414 16.5514 28.9746L28.064 21.3653C28.6808 20.9577 28.6572 20.0447 28.0201 19.6695L16.5075 12.888Z" opacity="1" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {%- endfor -%}
+                    </div>
+                </div>
+            
+                <script>
+                  $(document).ready(function() {
+                    var mainSlider = $('#main-slider');
+                    var thumbnailSlider = $('#thumbnail-slider');
+                
+                    mainSlider.slick({
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      arrows: true,
+                      fade: true,
+                      asNavFor: '#thumbnail-slider'
+                    });
+                
+                    thumbnailSlider.slick({
+                      slidesToShow: 5,
+                      slidesToScroll: 1,
+                      asNavFor: '#main-slider',
+                      dots: false,
+                      centerMode: false,
+                      focusOnSelect: true,
+                      infinite: true,
+                      responsive: [
+                        {
+                          breakpoint: 768,
+                          settings: {
+                            slidesToShow: 3
+                          }
+                        }
+                      ]
+                    });
+                
+                    // Ensure synchronization of main slider with thumbnail slider
+                    mainSlider.on('afterChange', function(event, slick, currentSlide) {
+                      thumbnailSlider.slick('slickGoTo', currentSlide);
+                    });
+                  });
+                </script>
+            </div>
+                
+                {% else %}
+            <div class="product-thumbnail__photos product-single__photos navslider_main {% if template contains 'unlimited' %}sim-unlimited{% endif %}">
             {% capture img_id_class %}product-single__photo-{{ featured_image.id }}{% endcapture %}
             {% capture wrapper_id %}ProductImageWrapper-{{ featured_image.id }}{% endcapture %}
 
@@ -213,96 +241,25 @@ xhr.send(data);
                   </div>
                 </div>
               </div>
-            </div>
-
-            {% comment %}
-              Populate rest of product images with display = none, not repeating the featured one
-            {% endcomment %}
-            {% for image in product.images %}
-              {% unless image contains featured_image %}
-
-                {% comment %}
-                  We need to figure out the max width we want the image to be on the page
-                  based on the aspect ratio of the image and based on the size of the
-                  image.
-                {% endcomment %}
-                {% capture wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
-
-                <div class="product-single__photo--flex-wrapper">
-                  <div class="product-single__photo--flex">
-                    {% include 'image-style' with image: image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
-                    <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb hide">
-                      <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
-                        {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                        <img class="product-single__photo lazyload {{ img_id_class }}"
-                          src="{{ image | img_url: 'master' }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ image.aspect_ratio }}"
-                          data-sizes="auto"
-                          {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                          data-image-id="{{ image.id }}"
-                          alt="{{ image.alt | escape }}">
-
-                        <noscript>
-                          <img class="product-single__photo" src="{{ image.src | img_url: 'master' }}"
-                            {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                            alt="{{ image.alt | escape }}"
-                            data-image-id="{{ image.id }}">
-                        </noscript>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endunless %}
-            {% endfor %}
-
-            {% comment %}
-              Display thumbnails
-            {% endcomment %}
-            <div class="product-single__thumbnails pdp-slide" id="ProductThumbs">
-              {% for image in product.images %}
-                {% if product.images.size > 1 %}
-                  <div class="grid__item product-single__photo-wrapper">
-                    <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: 'grande' }}" class="product-single__thumbnail {% if image contains featured_image %} active-thumb{% endif %}">
-                      <img class="product-single__thumb" src="{{ image.src | img_url: '150x' }}" alt="{{ image.alt | escape }}">
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <script>
-              $(document).ready(function() {
-                $('#ProductThumbs').slick({
-                  slidesToShow: 6, // Set the number of thumbnails to show at a time
-                  slidesToScroll: 1, // Set how many thumbnails to scroll at a time
-                  dots: false, // Show or hide navigation dots
-                  arrows: true, // Show or hide navigation arrows
-                  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-                  nextArrow: '<button type="button" class="slick-next">Next</button>',
-                  responsive: [
-                    {
-                      breakpoint: 768, // Adjust settings for smaller screens
-                      settings: {
-                        slidesToShow: 3,
-                      },
-                      
-                    },
-                    {
-                      breakpoint: 1360, // Adjust settings for smaller screens
-                      settings: {
-                        slidesToShow: 5,
-                      },
-                      
-                    }
-                  
-                  ]
-                });
-              });
-            </script>
-            
           </div>
+        </div>
+            {% endif %}
         {% endif %}
+        {% if template contains 'unlimited' %}    
+        <div class="info unli-esim unli-desktop">
+          <div class="info__icon">
+            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m12 1.5c-5.79844 0-10.5 4.70156-10.5 10.5 0 5.7984 4.70156 10.5 10.5 10.5 5.7984 0 10.5-4.7016 10.5-10.5 0-5.79844-4.7016-10.5-10.5-10.5zm.75 15.5625c0 .1031-.0844.1875-.1875.1875h-1.125c-.1031 0-.1875-.0844-.1875-.1875v-6.375c0-.1031.0844-.1875.1875-.1875h1.125c.1031 0 .1875.0844.1875.1875zm-.75-8.0625c-.2944-.00601-.5747-.12718-.7808-.3375-.206-.21032-.3215-.49305-.3215-.7875s.1155-.57718.3215-.7875c.2061-.21032.4864-.33149.7808-.3375.2944.00601.5747.12718.7808.3375.206.21032.3215.49305.3215.7875s-.1155.57718-.3215.7875c-.2061.21032-.4864.33149-.7808.3375z" fill="#393a37"></path></svg>
+          </div>
+
+          {% if product.metafields["custom_fields"]["unlimited_data_information"] != blank %}
+            <div class="info__title">{{ product.metafields["custom_fields"]["unlimited_data_information"] }}
+            {% endif %}
+
+
+        </div>
+        </div>
+        {% endif %}
+
       </div>
 
       <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths">
@@ -327,24 +284,18 @@ xhr.send(data);
                <h1 class="product-single__title" itemprop="name">{{ product.title }}</h1>
             {% endif %}
         </div>
-          <div class="reviews">
-			   <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
 
-{%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
-  {%- assign time_now = 'now' | date: '%s' %}
-  {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
-  {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
-  {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
-  {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
-  {%- if yotpo_live_time and diff_seconds_from_live < 86400 or yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
-    {%- assign yotpo_bottomline_obsolete = false %}
-  {%- else %}
-    {%- assign yotpo_bottomline_obsolete = true %}
-  {%- endif %}
-  {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
-    {{ product.metafields.yotpo.bottomline }}
-  {%- endif %}</div>      
-		  </div>
+          <!-- Stamped - Begin Star Rating Badge -->
+          <span 
+          class="stamped-product-reviews-badge custom-star" 
+          data-id="{{ product.id }}"
+          data-product-sku="{{ product.handle }}" 
+          data-product-type="{{product.type}}" 
+          data-product-title="{{product.title}}" 
+          style="display:block;">
+          </span>
+          <!-- Stamped - End Star Rating Badge -->
+
           <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             {% comment %}
               Optionally show the 'compare at' or original price of the product.
@@ -400,8 +351,38 @@ xhr.send(data);
                       {{ option.name | escape }}
                     </label>
                     {% if section.settings.product_selector == 'radio' %}
-                      <fieldset class="single-option-radio desktopradio"
+                      {% if template contains 'unlimited' %}
+                        <fieldset class="single-option-radio"
                         id="ProductSelect-option-{{ forloop.index0 }}">
+                        {% assign option_index = forloop.index %}
+                        {% for value in option.values %}
+                          {% assign variant = product.variants[forloop.index0] %}
+                          {% assign variant_label_state = true %}
+                          {% if product.options.size == 1 %}
+                            {% unless variant.available %}
+                              {% assign variant_label_state = false %}
+                            {% endunless %}
+                          {% endif %}
+                          <div class="product_radio_otr">
+                            <input type="radio"
+                              {% if option.selected_value == value %} checked="checked"{% endif %}
+                              {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                              value="{{ value | escape }}"
+                              data-index="option{{ option_index }}"
+                              name="option{{ option.position }}"
+                              class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                              id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                            <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}><span class="unli-text">Unlimited Data</span>
+                            <span class="unli-days">{{ value | escape }}</span> <span class="unli-price">{{ variant.price | money_without_trailing_zeros }}</span> <span class="unli-perday"></span> {% unless variant_label_state %} (Sold out){% endunless %}</label>
+                          </div>
+                          
+                        {% endfor %}
+                        
+                        </fieldset>
+                      {% else %}
+                        <fieldset class="single-option-radio desktopradio"
+                         id="ProductSelect-option-{{ forloop.index0 }}">
+                                               
                         {% assign option_index = forloop.index %}
                         {% for value in option.values %}
                           {% assign variant_label_state = true %}
@@ -430,7 +411,7 @@ xhr.send(data);
                         <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }} </option>
                         {% endfor %}
                       </select>
-                    
+                    {% endif %} 
                     
                     {% else %}
                       <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
@@ -476,6 +457,7 @@ xhr.send(data);
                   {% endif %}
                 {% endfor %}
               </select>
+
 
                 <div class="qty_box">
                   <div class="qty-stock">
@@ -526,7 +508,20 @@ xhr.send(data);
             {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
          </div>
     {% endif %}
-			
+    {% if template contains 'unlimited' %}    
+    <div class="info unli-esim unli-mobile">
+      <div class="info__icon">
+        <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m12 1.5c-5.79844 0-10.5 4.70156-10.5 10.5 0 5.7984 4.70156 10.5 10.5 10.5 5.7984 0 10.5-4.7016 10.5-10.5 0-5.79844-4.7016-10.5-10.5-10.5zm.75 15.5625c0 .1031-.0844.1875-.1875.1875h-1.125c-.1031 0-.1875-.0844-.1875-.1875v-6.375c0-.1031.0844-.1875.1875-.1875h1.125c.1031 0 .1875.0844.1875.1875zm-.75-8.0625c-.2944-.00601-.5747-.12718-.7808-.3375-.206-.21032-.3215-.49305-.3215-.7875s.1155-.57718.3215-.7875c.2061-.21032.4864-.33149.7808-.3375.2944.00601.5747.12718.7808.3375.206.21032.3215.49305.3215.7875s-.1155.57718-.3215.7875c-.2061.21032-.4864.33149-.7808.3375z" fill="#393a37"></path></svg>
+      </div>
+
+      {% if product.metafields["custom_fields"]["unlimited_data_information"] != blank %}
+        <div class="info__title">{{ product.metafields["custom_fields"]["unlimited_data_information"] }}
+        {% endif %}
+
+
+    </div>
+    </div>
+    {% endif %}
         </div>
       </div>
     </div>
@@ -547,23 +542,39 @@ xhr.send(data);
   </script>
 {% endunless %}
 <script>
-  var isMobile = false; //initiate as false
-// device detection
-if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
-    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
+  var isMobile = false; // initiate as false
+  // device detection based on screen width
+  if (window.innerWidth <= 768) {
     isMobile = true;
-}
-  if(isMobile==false){
+  }
+  if (!isMobile) {
+    // Desktop
     jQuery(document).ready(function(){
       jQuery('.mobile_select').remove();
     });
-  }
-  if(isMobile==true){
+  } else {
+    // Mobile
     jQuery(document).ready(function(){
       jQuery('.desktopradio').remove();
     });
   }
 </script>
+
+{% assign coverage_values = product.metafields["custom_fields"]["product_coverage1"] | split: "|" %}
+<script type="application/json" id="productFilter">
+  {
+    "productData": "{{ product.metafields["custom_fields"]["product_data"] }}",
+    "productValidity": "{{ product.metafields["custom_fields"]["product_validity"] }}",
+    "productSMS": "{{ product.metafields["custom_fields"]["product_sms"] }}",
+    "productCalls": "{{ product.metafields["custom_fields"]["product_calls"] }}",
+    "productCoverage": [
+      {% for value in coverage_values %}
+        "{{ value }}" {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+</script>
+
 
 {% schema %}
 {

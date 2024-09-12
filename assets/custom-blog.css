@@ -169,6 +169,16 @@ background: linear-gradient(255.63deg,#ff8731 1%,#ffad31 98.91%);
     gap: 6px;
 }
 
+.travel-single .blog-hero .block-archive-inner p span {
+    background-color: #fff0;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: normal;
+    color: #56575a;
+    font-size: 14px;
+    line-height: 20px;
+    padding: unset;
+}
 
 .blog-main-container {
     padding: 75px 25px;

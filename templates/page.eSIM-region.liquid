@@ -1,132 +1,125 @@
 <!-- /templates/page.liquid -->
 <div class="esim-full-width">
-  <img alt="eSim Banner" class="lazyload hs-lazyload hs-id-02588873" data-src="{{ 'eSIM-Hero-banner.webp' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
+	<img alt="eSim Banner" class="lazyload hs-lazyload hs-id-02588873" data-src="{{ 'eSIM-Hero-banner.webp' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 </div>
 <!-- Custom Tabs -->
 <div class="grid-uniform continent_sim_cards esims">
-  <div class="innerpage_heading esim">
-    <h2>Travel eSIM Options | SimCorner</h2>
-  </div>
+	<div class="innerpage_heading esim">
+		<h2>Travel eSIM Options | SimCorner</h2>
+	</div>
 </div>
 
 <div class="esim-collection-section">
-  <div class="esim-tabs-section">
-    <div class="custom-tabs">
-      <div id="nav-tab-menu">
-        <div class="trigger-spec-tab esim-tab"></div>
-      </div>
-      <div id="nav-tab">
-        <span class="trigger-tab" data-target="#all-tab">BEST SELLERS</span>
-        <span class="trigger-tab" data-target="#region-tab">REGION</span>
-        <span class="trigger-tab" data-target="#country-tab">COUNTRY</span>
-        <span class="trigger-tab" data-target="#global-tab">GLOBAL</span>
-      </div>
-    </div>
-    <div id="main-tab" class="esim-collection">
-          {% include 'esim-search' %}
-        <div class="targets-tab">
-          <div class="target-tab" id="all-tab">
-            <div class="esim-collection">
-              {% assign collection_handle = 'best-seller-esims' %}
-              {% assign target_collection = collections[collection_handle] %}
-              <div class="grid-uniform continent_sim_cards">
-                {%- assign grid_item_width = 'medium--one-half large--one-third' -%}
-                <div class="carousel_main">
-                  <div class="carousel" id="carousel_one">
-                    {%- for product in target_collection.products -%}
-                      {%- include 'product-grid-item' -%}
-                    {%- endfor -%}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="target-tab" id="region-tab">
-  <div class="esim-collection">
-    {% assign customOrderedCollections = 'Europe eSIMs,USA / Canada / Mexico eSIMs,Asia eSIMs,NZ / Australia / Fiji eSIMs,United Kingdom eSIMs,South America eSIMs,Africa eSIMs,Middle East eSIMs,Caribbean eSIMs' | split: ',' %}
-    
-    {% assign sortedCollections = collections | sort: 'title' %}
-    
-    {% for title in customOrderedCollections %}
-      {% if title == 'USA, Canada, Mexico eSIMs' %}
-        {% assign collectionTitleToFind = 'USA eSIMs, Canada eSIMs, Mexico eSIMs' %}
-      {% else %}
-        {% assign collectionTitleToFind = title %}
-      {% endif %}
-      
-      {% assign collection = sortedCollections | where: 'title', collectionTitleToFind | first %}
-      
-      {% if collection %}
-        <div class="esim-cards">
-          <a href="{{ collection.url }}">
-            {% if collection.image %}
-              <img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-7419dfa6" data-src="{{ collection.image | img_url: '300x' }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
-            {% else %}
-              <img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-f97ba9e2" data-src="{{ 'SimCorner-Placeholder.png' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
-            {% endif %}
-            <p class="text-link">{{ collection.title }}</p>
-          </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
+	<div class="esim-tabs-section">
+		<div class="custom-tabs">
+			<div id="nav-tab-menu">
+				<div class="trigger-spec-tab esim-tab"></div>
+			</div>
+			<div id="nav-tab">
+				<span class="trigger-tab" data-target="#all-tab">BEST SELLERS</span>
+				<span class="trigger-tab" data-target="#region-tab">REGION</span>
+				<span class="trigger-tab" data-target="#country-tab">COUNTRY</span>
+				<span class="trigger-tab" data-target="#global-tab">GLOBAL</span>
+			</div>
+		</div>
+		<div id="main-tab" class="esim-collection">
+			{% include 'esim-search' %}
+			<div class="targets-tab">
+				<div class="target-tab" id="all-tab">
+					<div class="esim-collection">
+						{% assign collection_handle = 'best-seller-esims' %}
+						{% assign target_collection = collections[collection_handle] %}
+						<div class="grid-uniform continent_sim_cards">
+							{%- assign grid_item_width = 'medium--one-half large--one-third' -%}
+							<div class="carousel_main">
+								<div class="carousel" id="carousel_one">
+									{%- for product in target_collection.products -%}
+									{%- include 'product-grid-item' -%}
+									{%- endfor -%}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="target-tab" id="region-tab">
+					<div class="esim-collection">
+						{% assign customOrderedCollections = 'Europe eSIMs,USA / Canada / Mexico eSIMs,Asia eSIMs,NZ / Australia / Fiji eSIMs,United Kingdom eSIMs,South America eSIMs,Africa eSIMs,Middle East eSIMs,Caribbean eSIMs' | split: ',' %}
 
-          
-          <div class="target-tab" id="country-tab">
-            <div class="esim-collection">
-                {% for collection in collections %}
-                  {% if collection.title contains 'Egypt eSIMs' or collection.title contains 'France eSIMs' or collection.title contains 'Germany eSIMs' 
+						{% assign sortedCollections = collections | sort: 'title' %}
+
+						{% for title in customOrderedCollections %}
+						{% if title == 'USA, Canada, Mexico eSIMs' %}
+						{% assign collectionTitleToFind = 'USA eSIMs, Canada eSIMs, Mexico eSIMs' %}
+						{% else %}
+						{% assign collectionTitleToFind = title %}
+						{% endif %}
+
+						{% assign collection = sortedCollections | where: 'title', collectionTitleToFind | first %}
+
+						{% if collection %}
+						<div class="esim-cards">
+							<a href="{{ collection.url }}">
+								{% if collection.image %}
+								<img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-7419dfa6" data-src="{{ collection.image | img_url: '300x' }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+								{% else %}
+								<img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-f97ba9e2" data-src="{{ 'SimCorner-Placeholder.png' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+								{% endif %}
+								<p class="text-link">{{ collection.title }}</p>
+							</a>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+
+
+				<div class="target-tab" id="country-tab">
+					<div class="esim-collection">
+						{% for collection in collections %}
+						{% if collection.title contains 'Egypt eSIMs' or collection.title contains 'France eSIMs' or collection.title contains 'Germany eSIMs' 
                     or collection.title contains 'Japan eSIMs' or collection.title contains 'New Zealand eSIMs' or collection.title contains 'Turkey eSIMs'
                     or collection.title contains 'UAE eSIMs' or collection.title contains 'UK eSIMs' or collection.title contains 'USA eSIMs' %}
-                  <div class="esim-cards">
-                    <a href="{{ collection.url }}">
-                      {% if collection.image %}
-                        <img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-dfaef37e" data-src="{{ collection.image | img_url: '300x' }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
-                      {% else %}
-                        <img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-f97ba9e2" data-src="{{ 'SimCorner-Placeholder.png' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
-                      {% endif %}
-                      <p class="text-link">{{ collection.title }}</p>
-                    </a>
-                  </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
-          </div>
-          <div class="target-tab" id="global-tab">
-            <div class="esim-collection">
-              {% assign collection_handle = 'global-esims' %}
-              {% assign target_collection = collections[collection_handle] %}
-              <div class="grid-uniform continent_sim_cards">
-                {%- assign grid_item_width = 'medium--one-half large--one-third' -%}
-                <div class="carousel_main">
-                  <div class="carousel" id="carousel_one">
-                    {%- for product in target_collection.products -%}
-                      {%- include 'product-grid-item' -%}
-                    {%- endfor -%}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>      
-        </div>
-    </div>
-  </div>  
+						<div class="esim-cards">
+							<a href="{{ collection.url }}">
+								{% if collection.image %}
+								<img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-dfaef37e" data-src="{{ collection.image | img_url: '300x' }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+								{% else %}
+								<img alt="{{ collection.title }}" class="simcorner-img lazyload hs-lazyload hs-id-f97ba9e2" data-src="{{ 'SimCorner-Placeholder.png' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+								{% endif %}
+								<p class="text-link">{{ collection.title }}</p>
+							</a>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="target-tab" id="global-tab">
+					<div class="esim-collection">
+						{% assign collection_handle = 'global-esims' %}
+						{% assign target_collection = collections[collection_handle] %}
+						<div class="grid-uniform continent_sim_cards">
+							{%- assign grid_item_width = 'medium--one-half large--one-third' -%}
+							<div class="carousel_main">
+								<div class="carousel" id="carousel_one">
+									{%- for product in target_collection.products -%}
+									{%- include 'product-grid-item' -%}
+									{%- endfor -%}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-    <!-- End Custom Tabs -->
-    <!--<div class="esim-popular">
-{% section 'featured-collection-eSIM-slider' %}
-  </div-->
-  <div></div>
-    <div>
-   {{ page.content }} </div>
 <style>
-  .main-content {
-    padding-top: 80px;
-    overflow: hidden;
-}
+	.main-content {
+		padding-top: 80px;
+		overflow: hidden;
+	}
 
-div#shopify-section-footer {
-  margin-top: 0;
-}
+	div#shopify-section-footer {
+		margin-top: 0;
+	}
 </style>

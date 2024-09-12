@@ -1,0 +1,241 @@
+<div class="sv-popup-container" id="sv-popupContainer">
+  <div class="sv-popup-content">
+    <span class="sv-close-btn" id="sv-closeBtn">&times;</span>
+    <div class="sv-pop-inner">
+      <div class="sv-inner sv-left">
+        <img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/survey_banner.webp?v=1711522997">
+      </div>
+      <div class="sv-inner sv-right">
+        <h3>Ready to Save?<h3>
+        <h2>Unlock Your <span>20%</span> Discount!</h2>
+        <p>Fill out our quick survey and get an exclusive discount. Your feedback matters!</p>
+        <a id="sv-discount" href="https://simcorner.typeform.com/survey" target="_blank">Get Discount Now!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const popupContainer = document.getElementById("sv-popupContainer");
+    const closeBtn = document.getElementById("sv-closeBtn");
+    const discountLink = document.getElementById("sv-discount");
+
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
+    }
+
+    // Function to get a cookie by name
+    function getCookie(name) {
+      const keyValue = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+      return keyValue ? keyValue[2] : null;
+    }
+
+    // Show the popup if the cookie doesn't exist
+    function showPopup() {
+      if (!getCookie("popupShown")) {
+        popupContainer.style.display = "block";
+        setCookie("popupShown", "true", 30); // Set cookie to expire in 30 days
+      }
+    }
+
+    // Close the popup
+    function closePopup() {
+      popupContainer.style.display = "none";
+    }
+
+    // Show popup after a delay (e.g., 5 seconds)
+    setTimeout(showPopup, 5000);
+
+    // Close popup when close button is clicked
+    closeBtn.addEventListener("click", closePopup);
+
+    // Close popup and set cookie when discount link is clicked
+    discountLink.addEventListener("click", function(event) {
+      closePopup();
+      setCookie("popupShown", "true", 30); // Set cookie to expire in 30 days
+    });
+
+    // Close popup when clicked outside the popup content
+    popupContainer.addEventListener("click", function(event) {
+      if (event.target === popupContainer) {
+        closePopup();
+      }
+    });
+  });
+</script>
+
+
+<style>
+  .sv-popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    
+    .sv-popup-content {
+      background-color: #fff;
+      width: 50%;
+      max-width: 800px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 1s ease-out;
+    }
+    
+    .sv-pop-inner {
+      display: flex;
+      flex-direction: row;
+      border: 6px solid #ffffff;
+  }
+  
+  .sv-inner.sv-left {
+    width: 40%;
+  }
+  
+  .sv-inner.sv-right {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+  }
+  
+  .sv-inner h2 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      text-align: center;
+      color: #000000 !important;
+  }
+  
+  .sv-inner span {
+      color: #fc015a;
+      text-shadow: 1px 1px 0 #7b1737;
+      font-size: 2.25rem;
+  }
+  
+  .sv-inner h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666666 !important;
+      text-align: center;
+  }
+  
+  .sv-inner p {
+      font-size: 1.10rem;
+      text-align: center;
+  }
+  
+  .sv-inner a {
+      background-color: #fc015a;
+      padding: 1rem 2rem; 
+      color: #ffffff;
+      margin-top: 1rem;
+      border-radius: 24px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: center;
+      border-right: 3px solid #7b1737;
+      border-bottom: 6px solid #7b1737;
+  }
+  
+  .sv-inner a:hover {
+      color: #ffffff;
+      background-color: #ee1863;
+  }
+  
+  .sv-inner.sv-left img {
+  object-fit: cover;
+  width: 100%;
+      height: 100%;
+  }
+  
+    .sv-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      background-color: #69b4b3;
+      border-radius: 20px;
+      height: 36px;
+      width: 36px;
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+  
+    .sv-close-btn:hover {
+      background-color: #1a5452;
+    }
+  
+  
+    @media only screen and (max-width: 1200px) and (min-width: 651px) {
+      .sv-popup-content {
+          width: 95%;
+      }
+    }
+  
+  @media only screen and (max-width: 650px) {
+      .sv-inner.sv-left {
+          width: 45%;
+        }
+        
+        .sv-inner.sv-right {
+          width: 55%;
+        }
+  
+      .sv-popup-content {
+          width: 95%;
+      }
+  
+      .sv-inner.sv-right {
+          padding: 8px;
+      }
+  
+      .sv-inner h3 {
+          font-size: 10px;
+      }
+  
+      .sv-inner h2 {
+          font-size: 18px;
+      }
+  
+      .sv-inner p {
+          font-size: 13px;
+          margin-bottom: 0;
+  
+      }
+  
+      .sv-inner a {
+          padding: 8px 14px;
+          font-size: 12px;
+          border-right: 2px solid #7b1737;
+          border-bottom: 4px solid #7b1737;
+      }
+  
+      .sv-inner span {
+          font-size: 20px;
+      }
+  
+      .sv-close-btn {
+          height: 24px;
+          width: 24px;
+          font-size: 15px;
+      }
+  }
+</style>

@@ -1206,8 +1206,19 @@
      <h2 class="h1 section-header__title">Reviews</h2>
             <hr class="hr--small">
    </div>
-    	<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&amp;','%26'}}" data-description="{{ hs_product_description | escape }}" data-price="{{ variant.price | money_without_currency }}" data-currency="{{ shop.currency }}"></div>
-  </div>                
+ </div> 
+<!--Stamped - Begin Main Widget -->
+<div 
+id="stamped-main-widget"   
+data-product-id="{{ product.id }}"   
+data-name="{{ product.title | escape }}"   
+data-url="{{ shop.url }}{{ product.url }}"   
+data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+data-description="{{ product.description | escape }}"   
+data-product-sku="{{product.handle}}" 
+data-product-type="{{product.type}}">    
+</div>
+<!-- Stamped - End Main Widget -->               
 <style>
 ul.tabs {
   border-bottom: 1px solid #DDDDDD;

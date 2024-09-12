@@ -1011,7 +1011,7 @@ var ajaxCart = (function(module, $) {
 
       // Create item's data object and add to 'items' array
       var new_sku = cartItem.sku.replace(/\ /g, "");
-      if (cartItem.id == '31688313864246')
+      if (cartItem.id == '33087768166459')
       {
         var departure_date = '<input placeholder="Departure Date" validate_attr="vrequired-{{cartItem.id}}-0" class="vrequired-{{cartItem.id}}-0 date datepicker" type="text" name="attributes[USA-Tablet-DATA-ONLY(T-Mobile) Departure Date]" value="">';
       }
@@ -3737,6 +3737,7 @@ theme.afterCartLoad = function() {
   });
 };
 
+
 theme.checkoutIndicator = function() {
   // Add a loading indicator on the cart checkout button (/cart and drawer)
   theme.cache.$body.on('click', '.cart__checkout', function(e) {
@@ -4135,7 +4136,7 @@ function addfield(add){
   	var rr = parseInt(getInputlength) - parseInt(1);
   	//var fieldHTML = '<input type="text" name="attributes['+getSku + ' ' + getInputlength +' Departure Date]" class="required date hasDatepicker" placeholder="DD/MM/YYYY">';
 
-  var fieldHTML = '<div class="input_row"><label>'+label+' </label><input placeholder="'+label+'" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' '+ getlabel +']"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-0417acd7" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div>';
+  var fieldHTML = '<div class="input_row"><label>'+label+' </label><input placeholder="'+label+'" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' '+ getlabel +']"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-c955b8a3" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div>';
   
   if(getInputlength < getQty){
     	jQuery('#'+getid).parent().parent().append(fieldHTML);
@@ -4151,13 +4152,14 @@ function adddeptfield(add){
     var label =  jQuery('#'+getid).closest('.arrival_text_main').find('label').text();
 	var getSku = jQuery(add).attr('sku');
     var getlabel = jQuery(add).attr('label');
+
   	var getQty = jQuery('#'+getid).closest('.grid').find('.ajaxcart__qty-num').val();
   	if(typeof getQty == 'undefined'){
 		 getQty = jQuery('#'+getid).closest('.grid--full').find('.js-qty__num').val();
   	}
   	var rr = parseInt(getInputlength) - parseInt(1);
-  	//var fieldHTML = '<div class="input_row"><label>'+label+' </label><input placeholder="DD/MM/YYYY" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' Arrival Date]"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-0417acd7" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div>';
- var fieldHTML = '<div class="arrival_container"><div class="arrival_text_main"><div class="input_row"><label>'+label+' </label><input placeholder="'+label+'" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' '+ getlabel +']"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-0417acd7" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div></div><div class="arrival_text_main"><div class="input_row"><label>'+label+' </label><input placeholder="Departure Date" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' Departure Date]"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-0417acd7" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div></div></div>';
+  	//var fieldHTML = '<div class="input_row"><label>'+label+' </label><input placeholder="DD/MM/YYYY" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' Arrival Date]"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-c955b8a3" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div>';
+ var fieldHTML = '<div class="arrival_container"><div class="arrival_text_main"><div class="input_row"><label>'+label+' </label><input placeholder="'+label+'" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' '+ getlabel +']"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-c955b8a3" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div></div><div class="arrival_text_main"><div class="input_row"><label>'+label+' </label><input placeholder="Departure Date" validate_attr="vrequired-'+getid+'-'+ getInputlength+'" class="vrequired-'+getid+'-'+ getInputlength +' date datepicker" type="text" name="attributes['+getSku + ' ' + getInputlength +' Departure Date]"><span class="dp_input input_small_buttons"><img class="lazyload hs-lazyload hs-id-c955b8a3" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/ion-calendar.svg?10308" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></span></div></div></div>';
   	if(getInputlength < getQty){
     	jQuery('#'+getid).closest('.grid__item').append(fieldHTML);
     }
@@ -4165,5 +4167,4 @@ function adddeptfield(add){
     	jQuery('#'+getid).hide();
   	}
 }
-
 

@@ -46,43 +46,101 @@
           <div class="travel-search"><h2>Latest Articles</h2>
           {% include 'blog-search' %}
           </div>
-          {% comment %} <hr> {% endcomment %}
-          <div class="main_travel_container">
-          {%- paginate blogs.travel-guides.articles by 12 -%}
-          {% for article in blogs.travel-guides.articles %}
-          <div class="blog_main_travel"> 
-            {% if article.image %}
-            {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
-            {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
-            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-
-            <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
-              <div class="article__grid-image-container">
-                <a href="{{ article.url }}">
-                  <img alt="" class="article__grid-image lazyload hs-lazyload hs-id-0aacc45a" data-aspectratio="{{ article.image.aspect_ratio }}" data-sizes="auto" data-src="{{ article.image | img_url: '600x600' }}" data-widths="[180, 360]" id="{{ img_id }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-                </a>
-              </div>
-            </div>
-            <div class="blog-travel-content">
-              <h3><a href="{{ article.url }}">{{ article.title | strip_html | truncate: 70}}</a></h3>
-            </div>
-            <div class="excerpt-text"><a href="{{ article.url }}">
-                <p>{{ article.content | strip_html | truncate: 150}}</p>
-              </a>
-              <a href="{{ article.url }}" class="travel-read-more">Read more</a>
-            </div>
-            <noscript>
-              <div class="article__grid-image-wrapper">
-                {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
-              </div>
-            </noscript>
-            {% endif %}
+          <div class="filter-by-tag filter--travel">
+            {% comment %} <label for="tag-filter">{{ request.path | split: "/" | last | remove: "blog-" }}</label> {% endcomment %}
+            <div>
+            <ul class="tags">
+              <li id="current-selected-tag">
+                {% if request.path contains '/blogs/travel-guides/tagged/' %}
+                  {% assign current__tag = request.path | split: "/" | last | remove: "blog-" %}
+                  {{ current__tag | remove: "blog-" | remove: "accessories-" | remove: "europe-" | remove: "asia-" | replace: "-", " " | capitalize | strip }}
+                {% else %}
+                  All
+                {% endif %}
+              </li>
+            </ul>
           </div>
-          {% endfor %}
-          <div class="pagination_outer">{{ paginate | default_pagination: next: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>', previous: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>' }}</div>
-          {%- endpaginate -%}
-        </div>
+          <div>
+            <label>Filter</label>
+            <select id="tag-filter-option" name="tag-filter">
+              <option active value="all">All</option>
+              {% for tag in blog.all_tags %}
+                {% assign cleaned_tag = tag | remove: "blog-" | remove: "accessories-" | remove: "europe-" | remove: "asia-" | replace: "-", " " | capitalize | strip %}
+                <option value="{{ tag | handleize }}">{{ cleaned_tag }}</option>
+              {% endfor %}
+            </select>
+          </div>
+            <script>
+              $(document).ready(function () {
+                $('#tag-filter-option').change(function () {
+                  var selectedTag = $(this).val();
+                  updateBlogArticles(selectedTag);
+                });
+            
+                function updateBlogArticles(selectedTag) {
+                  var baseUrl = '/blogs/travel-guides';
+                  var tagPath = (selectedTag === 'all') ? '' : '/tagged/' + selectedTag;
+                  var fullUrl = baseUrl + tagPath;
+                  var removedselectedTag = selectedTag.replace("blog-", "").replace("-", " ");
+
+            
+                  // Update the label with the selected tag
+                  $('#current-selected-tag').text(removedselectedTag);
+            
+                  // Redirect to the new URL
+                  window.location.href = fullUrl;
+                }
+              });
+
+              // Set the selectedTag value based on the URL when the page loads
+              var urlSegments = window.location.pathname.split('/');
+              var selectedTagFromUrl = urlSegments[urlSegments.length - 1]; // Get the last segment of the URL
+              document.getElementById('tag-filter-option').value = selectedTagFromUrl;
+              </script>
+            
+            
+          </div>
+          {% comment %} <hr> {% endcomment %}
+          <div class="main_travel_container" id="blog-articles-container">
+            {%- assign selectedTag = request.params.tag | default: 'all' -%}
+            {%- paginate blog.articles by 12 -%}
+            {% for article in blog.articles %}
+            {% if selectedTag == 'all' or article.tags contains selectedTag %}
+            <div class="blog_main_travel">
+
+              {% if article.image %}
+              {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+              {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+              {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+
+              <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
+                <div class="article__grid-image-container">
+                  <a href="{{ article.url }}">
+                    <img alt="" class="article__grid-image lazyload hs-lazyload hs-id-0aacc45a" data-aspectratio="{{ article.image.aspect_ratio }}" data-sizes="auto" data-src="{{ article.image | img_url: '600x600' }}" data-widths="[180, 360]" id="{{ img_id }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                  </a>
+                </div>
+              </div>
+              <div class="blog-travel-content">
+                <h3><a href="{{ article.url }}">{{ article.title | strip_html | truncate: 70}}</a></h3>
+              </div>
+              <div class="excerpt-text"><a href="{{ article.url }}">
+                  <p>{{ article.content | strip_html | truncate: 150}}</p>
+                </a>
+                <a href="{{ article.url }}" class="travel-read-more">Read more</a>
+              </div>
+              <noscript>
+                <div class="article__grid-image-wrapper">
+                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                </div>
+              </noscript>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="pagination_outer">{{ paginate | default_pagination: next: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>', previous: '<img class="lazyload hs-lazyload hs-id-da7bc7f8" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>' }}</div>
+            {%- endpaginate -%}
+          </div>
       </div>
 
       <div class="travel-guide-related">

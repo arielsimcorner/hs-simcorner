@@ -6,6 +6,8 @@
       "image": "{{ collection.image | img_url: 'large' }}"
     }
   </script>
+  <script src="{{ 'filter-options.js' | asset_url }}" defer="defer"></script>
+  
 <div class="continent_outer_main" id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
   {% assign collection_ref = collections[collection.metafields.custom_fields["parent_collection_url"]] %}
 
@@ -38,41 +40,30 @@
             {% assign collectionSlugArray = "asia,malaysia,nepal,japan,hong-kong,macao,south-korea,cambodia,myanmar,singapore,taiwan,thailand,indonesia,laos,china,philippines,sri-lanka,pakistan,vietnam,india,europe,belgium,spain,germany,france,greece,switzerland,poland,netherlands,austria,slovakia,malta,russia,finland,ireland,norway,portugal,sweden,latvia,slovenia,hungary,macedonia,czech-republic,italy,croatia,cyprus,iceland,bulgaria,denmark,romania,israel,usa-canada-mexico,usa,guatemala,canada,mexico,united-kingdom,nz-australia-fiji,new-zealand,australia,fiji,middle-east,kuwait,qatar,palestine,uae-dubai,oman,egypt,turkey,south-america,costa-rica,panama,brazil,el-salvador,peru,chile,argentina,uruguay,colombia,nicaragua,africa,south-africa,brussels,scotland,wales,macau" | split: ',' %}
   			{% assign demonymArray = "Asian,Malaysian,Nepali,Japanese,Hongkonger,Macanese,Korean,Cambodian,Myanmar,Singaporean,Taiwanese,Thai,Indonesian,Laotian,Chinese,Filipina,Sri Lankan,Pakistani,Vietnamese,Indian,European,Belgian,Spaniard,Germans,French,Greeks,Swiss,Polish,Dutch,Austrian,Slovak,Maltese,Russian,Finnish,Irish,Norwegian,Portuguese,Swedish,Latvian,Slovenian,Hungarian,Macedonian,Czech,Italian,Croatian,Cypriot,Icelander,Bulgarian,Danes,Romanian,Israeli,American Canadian Mexican,American,Guatemalan,Canadian,Mexican,British,NZ Australian Fijian,NZ,Australian,Fijian,Middle Eastern,Kuwaitis,Qatari,Palestinian,Dubaite,Omani,Egyptian,Turkish,South American,Costa Rican,Panamanian,Brazilian,Salvadoran,Peruvian,Chilean,Argentinian,Uruguayan,Colombian,Nicaraguan,African,South African,Brusselaar,Scottish Scots,Welsh,Macau" | split: ',' %}
 			{% assign collectionHandle = collection.handle | remove: "-sim-card" %}
-      <span class="region--title">{{ collection.title }} </span>
-          <h1 class="header-destination"><strong>Buy Your <span class="region--title-sim">{{ collection.title }}</span> SIM Cards In Australia. Best Prepaid Sim For Travel</strong></h1>
+ 
+             <span class="region--title">{{ collection.title }} </span>
+                <h1 class="header-destination"><strong>Stay Connected Across <span class="region--title-sim">{{ collection.title }}</span>  – Avoid Roaming Fees!</strong></h1>
+               <p>Get a {{ collection.title }} SIM Card or a {{ collection.title }} eSIM for your travels. Avoid high roaming fees and enjoy connectivity with our {{ collection.title }} SIM cards. Perfect for Aussie travellers!</p>
 
-
-			<p>Buy your {{ collection.title }} Sim Cards from SimCorner and stay connected without worrying about hefty international roaming fees. Best value  
-              {% for slug in collectionSlugArray %}
-              {% if slug == collectionHandle  %}
-                {{ demonymArray[forloop.index0] }}
-              {% endif %}
-            {% endfor %} Travel Sim Card With Data Before You Fly! Perfect For Aussie Tourists.</p>
-
-            <div class="collection--accross">
-              <p class="review--text">Over 12,000+ 
-              <svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00"/>
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0025 13.5L20.711 16.2812L21.7215 10.3906L17.4406 6.21885L23.3567 5.35942L26.0025 0L28.6482 5.35942L34.5643 6.21885L30.2834 10.3906L31.294 16.2812L26.0025 13.5Z" fill="#ff7a00"/>
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M43.0025 13.5L37.711 16.2812L38.7215 10.3906L34.4406 6.21885L40.3567 5.35942L43.0025 0L45.6482 5.35942L51.5643 6.21885L47.2834 10.3906L48.294 16.2812L43.0025 13.5Z" fill="#ff7a00"/>
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M61.0025 13.5L55.711 16.2812L56.7215 10.3906L52.4406 6.21885L58.3567 5.35942L61.0025 0L63.6482 5.35942L69.5643 6.21885L65.2834 10.3906L66.294 16.2812L61.0025 13.5Z" fill="#ff7a00"/>
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M78.8323 13.5L73.5408 16.2812L74.5514 10.3906L70.2704 6.21885L76.1865 5.35942L78.8323 0L81.4781 5.35942L87.3942 6.21885L83.1132 10.3906L84.1238 16.2812L78.8323 13.5Z" fill="#ff7a00"/>
-              </svg>
-              Reviews across</p>
-              <div class="slider_rating_logos" bis_skin_checked="1">
-                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="google-logo" class="lazyload hs-lazyload hs-id-33af80bb" data-src="{{ 'google-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
-                 <div class="slider_logo_main" style=" margin-top: -10px;" bis_skin_checked="1"><img alt="facebook-logo" class="lazyload hs-lazyload hs-id-b1cfbc7e" data-src="{{ 'facebook-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
-                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="yotpo-logo" class="lazyload hs-lazyload hs-id-7057c693" data-src="{{ 'yotpo-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
-              </div>
-           </div>
-            <div class="default-page-btn --yotpo">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
+              
+               <div class="collection--accross">
+                  <p class="review--text">Trusted by Travellers: Join thousands of satisfied customers.<br>Over 19,000+ 
+                     <svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0025 13.5L20.711 16.2812L21.7215 10.3906L17.4406 6.21885L23.3567 5.35942L26.0025 0L28.6482 5.35942L34.5643 6.21885L30.2834 10.3906L31.294 16.2812L26.0025 13.5Z" fill="#ff7a00"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M43.0025 13.5L37.711 16.2812L38.7215 10.3906L34.4406 6.21885L40.3567 5.35942L43.0025 0L45.6482 5.35942L51.5643 6.21885L47.2834 10.3906L48.294 16.2812L43.0025 13.5Z" fill="#ff7a00"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.0025 13.5L55.711 16.2812L56.7215 10.3906L52.4406 6.21885L58.3567 5.35942L61.0025 0L63.6482 5.35942L69.5643 6.21885L65.2834 10.3906L66.294 16.2812L61.0025 13.5Z" fill="#ff7a00"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M78.8323 13.5L73.5408 16.2812L74.5514 10.3906L70.2704 6.21885L76.1865 5.35942L78.8323 0L81.4781 5.35942L87.3942 6.21885L83.1132 10.3906L84.1238 16.2812L78.8323 13.5Z" fill="#ff7a00"/>
+                     </svg>
+                     Reviews across</p>
+                     <div class="slider_rating_logos" bis_skin_checked="1">
+                        <div class="slider_logo_main" bis_skin_checked="1"><img alt="google-logo" class="lazyload hs-lazyload hs-id-4e77c9dd" data-src="{{ 'google-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                        <div class="slider_logo_main" style=" margin-top: -10px;" bis_skin_checked="1"><img alt="facebook-logo" class="lazyload hs-lazyload hs-id-ab856b49" data-src="{{ 'facebook-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                        <div class="slider_logo_main" bis_skin_checked="1"><img alt="stamped-logo" class="lazyload hs-lazyload hs-id-54d80fab" data-src="{{ 'stamped-logo.svg' | asset_url }}" src=""/></div>
+                     </div>
+                  </div>
+            <div class="custom-carousel" id="stamped-reviews-widget" data-widget-type="carousel" data-auto-play="true" data-auto-play-speed="3" data-limit-words="15" data-min-rating="4" data-fill-empty="true" data-random="true"></div>
             </div>
-
-            <div class="default-page-btn --yotpo-mobile">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
-            </div>
-        </div>
         <div class="page-hero-inner-image" style="background-image:url({{ col_img_url }});height: 500px;border-radius: 10px;background-position: center;">
 
         </div>
@@ -140,6 +131,17 @@
              <span class="trigger-tab" data-target="#esim-tab">eSIM</span>
           </div>
        </div>
+       <div class="sort-options pdp-sim-tabs">
+        <label>Filter </label>
+        <select id="sort-select" onchange="sortProducts(this.value)">
+          <option value="" disabled selected>Sort by</option>
+          <option value="default">Default</option>
+          <option value="price-low-to-high">Price, Low to High</option>
+          <option value="price-high-to-low">Price, High to Low</option>
+          <option value="title-a-z">Title, A - Z</option>
+          <option value="title-z-a">Title, Z - A</option>
+        </select>
+      </div>
        <div id="main-tab" class="esim-collection">
           <div class="targets-tab">
              <div class="target-tab" id="all-tab">

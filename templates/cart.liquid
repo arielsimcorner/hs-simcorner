@@ -261,7 +261,9 @@
               <button type="submit" name="checkout" class="btn cart__checkout">
                 {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
               </button>
-
+              <a href="/collections/all" class="btn--secondary btn--full continue-shopping">
+                Continue Shopping<span class="icon icon-arrow-right" aria-hidden="true"></span>
+               </a>
               {% if additional_checkout_buttons and settings.cart_type != 'drawer' %}
                 <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
               {% endif %}

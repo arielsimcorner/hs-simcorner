@@ -52,7 +52,7 @@
                   </div>
 					 {% for grandchildlink in childlink.links %}
                       <li class="grandchild_nav mobile-nav__item {{ grandchildlink.title }}">
-                        <a href="{{ grandchildlink.url }}" class="mobile-nav__link" {% unless request.page_type == 'index' %}{% if grandchildlink.active %}aria-current="page"{% endif %}{% endunless%}> <span class="grandchild_container"><span><img class="lazyload" data-src="{{ grandchildlink.title | replace: ' ', '-' | downcase | append: '.svg' | asset_url }}"></span> <h6>{{ grandchildlink.title | escape }}</h6></span> </a>
+                        <a href="{{ grandchildlink.url }}" class="mobile-nav__link" {% unless request.page_type == 'index' %}{% if grandchildlink.active %}aria-current="page"{% endif %}{% endunless%}> <span class="grandchild_container"><span>{{ grandchildlink.title | escape }}</span></span> </a>
                       </li>
                     {% endfor %}
                   </ul>

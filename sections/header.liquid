@@ -86,7 +86,7 @@
                            <ul class="sub_menu_otr_region">
                              <div class="sub_menu_arrow shop-regions-all">
                               <a class="nav-shop-regions" href="/pages/regions">
-                                <h5>Shop by Regions</h5>
+                                <span>Shop by Regions</span>
                                 <img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503">
                                </a>
 
@@ -132,7 +132,7 @@
                           <ul class="sub_menu_otr_region">
                          	<div class="sub_menu_arrow">
                             <a href="/pages/accessories">
-                            	<h5>Shop Accessories</h5>
+                            	<span>Shop Accessories</span>
                            		<img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503">
                             </a>
                             </div>
@@ -141,19 +141,19 @@
                               <a href="/products/protective-cloth-facemask-black-adult-kids-unisex">Protective Adult Cloth Face Mask</a>
                             </li>
                             <li>
-                              <a href="/collections/travel-accessories-and-necessities" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Homepage_Travel_Accessories.png"></a>
+                              <a href="/collections/travel-accessories-and-necessities" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Travel_Accessories.png"></a>
                               <a href="/collections/travel-accessories-and-necessities">Travel Accessories and Necessities</a>
                             </li>
                             <li>
-                              <a href="/collections/travel-journals" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Homepage_Travel_Diaries.png"></a>
+                              <a href="/collections/travel-journals" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Travel_Diaries.png"></a>
                               <a href="/collections/travel-journals">Travel Journals</a>
                             </li>
                             <li>
-                              <a href="/collections/packing-cubes" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Homepage_Packing_Cubes.png"></a>
+                              <a href="/collections/packing-cubes" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Packing_Cubes.png"></a>
                               <a href="/collections/packing-cubes">Packing Cubes</a>
                             </li>
                             <li>
-                              <a href="/collections/laundry-bags" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Homepage_Laundry_bags.png"></a>
+                              <a href="/collections/laundry-bags" class="li_fir" ><img width="250" height="250" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/Simcorner_Laundry_bags.png"></a>
                               <a href="/collections/laundry-bags">Laundry Bags</a>
                             </li>
                           </ul>
@@ -172,7 +172,7 @@
                               <ul class="sub_menu_otr_region">
                                <div class="sub_menu_arrow">
                                 <a href="/pages/shop-esim">
-                                  <h5>Shop eSim</h5>
+                                  <span>Shop eSim</span>
                                    <img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503">
                                  </a> 
                                </div>
@@ -208,10 +208,6 @@
                                 <a href="/collections/japan-esim" class="li_fir"><img  width="100" height="100" class="lazyload" data-src="{{ 'japan-esims.png' | asset_url }}"></a>
                                 <a href="/collections/japan-esim">Japan</a>
                               </li> 
-                              <li>
-                                <a href="/collections/caribbean-esim" class="li_fir"><img  width="100" height="100" class="lazyload" data-src="{{ 'caribbean-esims.png' | asset_url }}"></a>
-                                <a href="/collections/caribbean-esim">Caribbean</a>
-                              </li> 
                              </ul>
                             
                              <div class="sub_menu_bottom_arrow">
@@ -232,7 +228,7 @@
                             <ul class="sub_menu_otr_region">
                              <div class="sub_menu_arrow">
                               <a href="/pages/blog/">
-                                <h5>All Blogs</h5>
+                                <span>All Blogs</span>
                                  <img src="https://cdn.shopify.com/s/files/1/0179/4388/7926/files/sub_menu_arrow.svg?5503">
                                </a> 
                              </div>
@@ -255,7 +251,7 @@
             
             <div class="grid__item large--two-fifths medium-down--one-half logo_tab">
                   {% if request.page_type == 'index' %}
-                <h2 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+                <span class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
               {% else %}
                 <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
               {% endif %}
@@ -283,7 +279,7 @@
                   <a href="{{ routes.root_url }}" itemprop="url">{{ shop.name }}</a>
                 {% endif %}
               {% if request.page_type == 'index' %}
-                </h2>
+                </span>
               {% else %}
                 </div>
               {% endif %}

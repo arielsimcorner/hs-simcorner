@@ -20,7 +20,18 @@
                     <span class="visually-hidden">Sale price</span>
                     <span class="sale-price"><span class="long-dash">{{ cart.currency.iso_code }} </span> {{ product.price_min | money }}</span>
                     {% if product.compare_at_price > product.price %}<span class="regular-price"><span class="long-dash">{{ cart.currency.iso_code }}</span> {{ product.compare_at_price | money }}</span>{% endif %}
-                      <div class="yotpo bottomLine"  data-product-id="{{ product.id }}"></div>
+
+                    <!-- Stamped - Begin Star Rating Badge -->
+                    <span 
+                    class="stamped-product-reviews-badge" 
+                    data-id="{{ product.id }}"
+                    data-product-sku="{{ product.handle }}" 
+                    data-product-type="{{product.type}}" 
+                    data-product-title="{{product.title}}" 
+                    style="display:block;">
+                    </span>
+                    <!-- Stamped - End Star Rating Badge -->
+	
                   </span>
                 </span>
               </a>

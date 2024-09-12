@@ -10,7 +10,8 @@
         "height": 480
      }
   }
-  </script>
+</script>
+<script src="{{ 'filter-options.js' | asset_url }}" defer="defer"></script>
 
 <div class="continent_outer_main" id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
   {%- paginate collection.products by 12 -%}
@@ -26,7 +27,21 @@
           {% assign collectionHandle = collection.handle | remove: "-sim-card" %}
 
           <span class="region--title-esim">eSIM</span>
-          <h1><strong>Get Australia's Best <br>Prepaid <span class="region--title-sim">{{ collection.title }}</span> - <br>Perfect for Travellers!</strong> </h1> 
+          {% if collection.handle == 'esim-romania' %}
+            <h1><strong>Best eSIM for <br><span class="region--title-sim">Romania</span> Travel</strong></h1>
+          {% elsif collection.handle == 'esim-czech-republic' %}
+            <h1><strong>Best eSIM for <br><span class="region--title-sim">Czech Republic</span> Travel</strong></h1>
+            {% elsif collection.handle == 'esim-bulgaria' %}
+            <h1><strong>Best eSIM for <br><span class="region--title-sim">Bulgaria</span> Travel</strong></h1>
+            {% elsif collection.handle == 'esim-slovenia' %}
+            <h1><strong>Best eSIM for <br><span class="region--title-sim">Slovenia</span> Travel</strong></h1>
+            {% else %}
+          <h1><strong>Get your Prepaid <br> <span class="region--title-sim">{{ collection.title }}</span> for Travel<br>and stay connected.</strong> </h1>
+          {% endif %}
+
+
+
+    
     
      <!-- Best Prepaid eSIM For    
                 {% for slug in collectionSlugArray %}
@@ -34,7 +49,7 @@
                   {{ demonymArray[forloop.index0] }}
                   {% endif %}
                   {% endfor %} Travel</h1--> 
-          <p>Looking for the perfect prepaid {{ collection.title }} for your travel? Choose SimCorner's best {{ collection.title }} for tourists. No roaming fees, affordable and fast connectivity. Travel smart, stay connected. Get yours now!</p>
+          <p>Say goodbye to roaming fees while you travel. Buy your {{ collection.title }} with data and stay connected. Choose SimCorner's best {{ collection.title }} for travel and say NO to roaming fees and YES to affordable and fast connectivity!</p>
           <!--  {% for slug in collectionSlugArray %}
             {% if slug == collectionHandle  %}
             {{ demonymArray[forloop.index0] }}
@@ -42,7 +57,7 @@
             {% endfor %} Choose SimCorner for your prepaid {{ collection.title }} to stay connected and travel without expensive international roaming fees.</p-->
 
             <div class="collection--accross">
-              <p class="review--text">Over 12,000+ 
+              <p class="review--text">Over 19,000+ 
               <svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00"/>
                  <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0025 13.5L20.711 16.2812L21.7215 10.3906L17.4406 6.21885L23.3567 5.35942L26.0025 0L28.6482 5.35942L34.5643 6.21885L30.2834 10.3906L31.294 16.2812L26.0025 13.5Z" fill="#ff7a00"/>
@@ -54,16 +69,10 @@
               <div class="slider_rating_logos" bis_skin_checked="1">
                  <div class="slider_logo_main" bis_skin_checked="1"><img alt="google-logo" class="lazyload hs-lazyload hs-id-9622de8b" data-src="{{ 'google-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
                  <div class="slider_logo_main" style=" margin-top: -10px;" bis_skin_checked="1"><img alt="facebook-logo" class="lazyload hs-lazyload hs-id-ee693b69" data-src="{{ 'facebook-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
-                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="yotpo-logo" class="lazyload hs-lazyload hs-id-97839477" data-src="{{ 'yotpo-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="stamped-logo" class="lazyload hs-lazyload hs-id-54d80fab" data-src="{{ 'stamped-logo.svg' | asset_url }}" src=""/></div>
               </div>
            </div>
-            <div class="default-page-btn --yotpo">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
-            </div>
-
-            <div class="default-page-btn --yotpo-mobile">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
-            </div>
+            <div class="custom-carousel" id="stamped-reviews-widget" data-widget-type="carousel" data-auto-play="true" data-auto-play-speed="3" data-limit-words="15" data-min-rating="4" data-fill-empty="true" data-random="true"></div>
         </div>
         <div class="page-hero-inner-image">
           {% if collection.image %}
@@ -169,6 +178,20 @@
       <h2>{{ collection.title }} Options</h2>
       {% endif %}
     </div>
+
+    <div class="sort-options pdp-sim">
+        <label>Filter </label>
+        <select id="sort-select" onchange="sortProducts(this.value)">
+        <option value="" disabled selected>Sort by</option>
+        <option value="default">Default</option>
+        <option value="price-low-to-high">Price, Low to High</option>
+        <option value="price-high-to-low">Price, High to Low</option>
+        <option value="title-a-z">Title, A - Z</option>
+        <option value="title-z-a">Title, Z - A</option>
+      </select>
+    </div>
+
+    
     <div class="carousel_main">
       <div class="carousel carousel_one" id="carousel_one">
         {%- for product in collection.products -%}

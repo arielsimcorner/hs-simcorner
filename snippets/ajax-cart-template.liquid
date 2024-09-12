@@ -13,7 +13,7 @@
       {{/each}}
     {{/properties}}
 {% endcomment %}
-  <script id="CartTemplate" type="text/template">
+<script id="CartTemplate" type="text/template">
   {% raw %}
   	<div style="display:none" class="cart_top">
     	<span class="left_cart_top">
@@ -204,6 +204,9 @@
         <button type="submit" class="btn--secondary btn--full cart__checkout" name="checkout">
           {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %} <span class="icon icon-arrow-right" aria-hidden="true"></span>
         </button>
+        <a class="btn--secondary btn--full continue-shopping continue-btn" onclick="document.querySelector('.js-drawer-close').click(); return false;">
+            Continue Shopping<span class="icon icon-arrow-right" aria-hidden="true"></span>
+        </a>
         </div>
       </div>
     </form>

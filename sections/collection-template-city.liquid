@@ -1,4 +1,5 @@
 <!-- /templates/collection.liquid -->
+<script src="{{ 'filter-options.js' | asset_url }}" defer="defer"></script>
 
 {%- if section.settings.show_collection_image and collection.image -%}
   <div class="collection-hero" style="display:none;">
@@ -79,7 +80,7 @@
               {% endif %}
             {% endfor %} Travel Sim Card With Data Before You Fly! Perfect For Aussie Tourists. Buy Online From SimCorner. </p>
             <div class="collection--accross">
-              <p class="review--text">Over 12,000+ 
+              <p class="review--text">Over 19,000+ 
               <svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00247 13.5L3.71095 16.2812L4.72154 10.3906L0.440612 6.21885L6.35671 5.35942L9.00247 0L11.6482 5.35942L17.5643 6.21885L13.2834 10.3906L14.294 16.2812L9.00247 13.5Z" fill="#ff7a00"/>
                  <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0025 13.5L20.711 16.2812L21.7215 10.3906L17.4406 6.21885L23.3567 5.35942L26.0025 0L28.6482 5.35942L34.5643 6.21885L30.2834 10.3906L31.294 16.2812L26.0025 13.5Z" fill="#ff7a00"/>
@@ -91,16 +92,10 @@
               <div class="slider_rating_logos" bis_skin_checked="1">
                  <div class="slider_logo_main" bis_skin_checked="1"><img alt="google-logo" class="lazyload hs-lazyload hs-id-f3473e26" data-src="{{ 'google-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
                  <div class="slider_logo_main" style=" margin-top: -10px;" bis_skin_checked="1"><img alt="facebook-logo" class="lazyload hs-lazyload hs-id-c7d7ab6b" data-src="{{ 'facebook-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
-                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="yotpo-logo" class="lazyload hs-lazyload hs-id-a965a9eb" data-src="{{ 'yotpo-logo.svg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></div>
+                 <div class="slider_logo_main" bis_skin_checked="1"><img alt="stamped-logo" class="lazyload hs-lazyload hs-id-54d80fab" data-src="{{ 'stamped-logo.svg' | asset_url }}" src=""/></div>
               </div>
            </div>
-            <div class="default-page-btn --yotpo">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
-            </div>
-
-            <div class="default-page-btn --yotpo-mobile">
-              <div class="yotpo yotpo-reviews-carousel"  data-header-customisation-enabled="1"  data-header-customisation-color="#56575f"  data-header-customisation-font-size="18"  data-header-customisation-text=""  data-header-customisation-alignment="left"  data-background-color="transparent"  data-mode="top_rated"  data-type="site"  data-count="9"  data-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
-            </div>
+            <div class="custom-carousel" id="stamped-reviews-widget" data-widget-type="carousel" data-auto-play="true" data-auto-play-speed="3" data-limit-words="15" data-min-rating="4" data-fill-empty="true" data-random="true"></div>
         </div>
         <div class="page-hero-inner-image" style="background-image:url({{ col_img_url }});height: 500px;border-radius: 10px;background-position: center;">
 
@@ -170,6 +165,17 @@
              <span class="trigger-tab" data-target="#esim-tab">eSIM</span>
           </div>
        </div>
+        <div class="sort-options pdp-sim-tabs">
+          <label>Filter </label>
+          <select id="sort-select" onchange="sortProducts(this.value)">
+            <option value="" disabled selected>Sort by</option>
+            <option value="default">Default</option>
+            <option value="price-low-to-high">Price, Low to High</option>
+            <option value="price-high-to-low">Price, High to Low</option>
+            <option value="title-a-z">Title, A - Z</option>
+            <option value="title-z-a">Title, Z - A</option>
+          </select>
+        </div>
        <div id="main-tab" class="esim-collection">
           <div class="targets-tab">
              <div class="target-tab" id="all-tab">

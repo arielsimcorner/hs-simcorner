@@ -101,7 +101,18 @@
           
               {%- if variant.compare_at_price > variant.price -%}<span class="regular-price"><span class="long-dash">{{ cart.currency.iso_code }} </span> {{ product.compare_at_price | money }}</span> {%- endif -%}
           {% endif %}
-       <div class="yotpo bottomLine"  data-product-id="{{ product.id }}"></div>       		
+          
+          <!-- Stamped - Begin Star Rating Badge -->
+          <span 
+          class="stamped-product-reviews-badge" 
+          data-id="{{ product.id }}"
+          data-product-sku="{{ product.handle }}" 
+          data-product-type="{{product.type}}" 
+          data-product-title="{{product.title}}" 
+          style="display:block;">
+          </span>
+          <!-- Stamped - End Star Rating Badge -->
+	
          </span>
 
         {%- if product.price_varies == false and variant.available and variant.unit_price_measurement -%}
